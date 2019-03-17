@@ -1,40 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #2a2a2a;
-  background-image: url(../images/bg.svg);
-  background-size: 30px 30px;
-  background-attachment: fixed;
-  font-family: 'Roboto', sans-serif;
-  overflow: hidden;
-  -webkit-animation: backgroundScroll 1s linear 1;
-          animation: backgroundScroll 1s linear 1;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  font-family: 'Roboto', sans-serif; }
 
-@-webkit-keyframes backgroundScroll {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 30px -30px; } }
-
-@keyframes backgroundScroll {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 30px -30px; } }
-
-.clip-svg {
-  -webkit-clip-path: url(#circlesClipPath);
-          clip-path: url(#circlesClipPath); }
-
-svg .circle {
-  transition: opacity 1s, -webkit-transform 1s;
-  transition: opacity 1s, transform 1s;
-  transition: opacity 1s, transform 1s, -webkit-transform 1s;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  opacity: 0; }
+.ink-drop {
+  transition: -webkit-transform 5s ease-out, -webkit-filter 5s ease-out;
+  transition: transform 5s ease-out, filter 5s ease-out;
+  transition: transform 5s ease-out, filter 5s ease-out, -webkit-transform 5s ease-out, -webkit-filter 5s ease-out; }
 
 .id-header {
   position: absolute;

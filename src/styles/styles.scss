@@ -6,31 +6,39 @@ $commColor: #5F3270;
 body {
   margin: 0;
   padding: 0;
-  background-color: #2a2a2a;
-  background-image: url(../images/bg.svg);
-  background-size: 30px 30px;
-  background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
-  overflow: hidden; 
-  animation: backgroundScroll 1s linear 1;
-  // animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
+  // background-color: #2a2a2a;
+  // background-image: url(../images/bg.svg);
+  // background-size: 30px 30px;
+  // background-attachment: fixed;
+  // overflow: hidden; 
+  // animation: backgroundScroll 1s linear 1;
+  // // animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
 
-  @keyframes backgroundScroll {
-    from {background-position: 0 0;}
-    to {background-position: 30px -30px;}
-  }
+  // @keyframes backgroundScroll {
+  //   from {background-position: 0 0;}
+  //   to {background-position: 30px -30px;}
+  // }
 }
 
-.clip-svg {
-  clip-path: url(#circlesClipPath);
-}
+// .clip-svg {
+//   clip-path: url(#circlesClipPath);
+// }
 
-svg .circle {
-  // fill: grey;
-  transition: opacity 1s, transform 1s;
-  transform: scale(0);
-  opacity: 0;
+// svg .circle {
+//   // fill: grey;
+//   transition: opacity 1s, transform 1s;
+//   transform: scale(0);
+//   opacity: 0;
+// }
+
+.ink-drop {
+  transition: transform 5s ease-out, filter 5s ease-out;
+  // transition: filter 10s ease-out;
+  // filter: blur(10px);
+  // transform: scale(0);
+  // fill: #3B3B78;
 }
 
 .id-header {
