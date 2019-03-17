@@ -27,7 +27,10 @@ body {
 }
 
 svg .circle {
-  fill: grey;
+  // fill: grey;
+  transition: opacity 1s, transform 1s;
+  transform: scale(0);
+  opacity: 0;
 }
 
 .id-header {

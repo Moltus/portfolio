@@ -29,7 +29,12 @@ body {
           clip-path: url(#circlesClipPath); }
 
 svg .circle {
-  fill: grey; }
+  transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 1s, -webkit-transform 1s;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0; }
 
 .id-header {
   position: absolute;
