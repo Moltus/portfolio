@@ -58,7 +58,7 @@ for(let i=0; i < inkDropTotal; i++) {
   InksGroup.appendChild(inkDrop);
 }
 
-let interval = setInterval(showRndCircle, 50);
+let interval = setInterval(showRndCircle, 30);
 
 function showRndCircle() {
   if (inkDropsIds.length === 0) {

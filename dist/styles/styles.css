@@ -2,19 +2,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: #2a2a2a;
   overflow: hidden; }
-
-#inks {
-  transition: -webkit-filter 5s ease-out;
-  transition: filter 5s ease-out;
-  transition: filter 5s ease-out, -webkit-filter 5s ease-out;
-  -webkit-filter: blur(0);
-          filter: blur(0); }
 
 .ink-drop {
   transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
   transition: transform 5s cubic-bezier(0, 1.01, 1, 1);
-  transition: transform 5s cubic-bezier(0, 1.01, 1, 1), -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1); }
+  transition: transform 5s cubic-bezier(0, 1.01, 1, 1), -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
+  -webkit-filter: blur(10px);
+          filter: blur(10px); }
 
 .id-header {
   position: absolute;
