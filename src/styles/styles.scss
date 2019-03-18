@@ -63,7 +63,7 @@ body {
 svg {
   position: absolute;
 
-  & circle {
+   #circle1, #circle2, #circle3 {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: dash 1s linear forwards;
