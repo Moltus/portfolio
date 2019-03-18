@@ -3,7 +3,51 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #2a2a2a;
+  background-image: url(../images/bg.svg);
   overflow: hidden; }
+
+.circle-bg {
+  position: absolute;
+  transition: opacity 1s;
+  opacity: 0;
+  background-color: #2a2a2a;
+  background-image: url(../images/bg.svg);
+  background-size: 30px 30px;
+  background-attachment: fixed;
+  -webkit-clip-path: circle(50%);
+          clip-path: circle(50%);
+  -webkit-animation: backgroundScroll 1s linear 1;
+          animation: backgroundScroll 1s linear 1;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; }
+
+@-webkit-keyframes backgroundScroll {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 30px -30px; } }
+
+@keyframes backgroundScroll {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 30px -30px; } }
+
+svg {
+  position: absolute; }
+  svg circle {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    -webkit-animation: dash 1s linear forwards;
+            animation: dash 1s linear forwards; }
+
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 0; } }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0; } }
 
 .ink-drop {
   transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
