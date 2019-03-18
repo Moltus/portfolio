@@ -1,12 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden; }
+
+#inks {
+  transition: -webkit-filter 5s ease-out;
+  transition: filter 5s ease-out;
+  transition: filter 5s ease-out, -webkit-filter 5s ease-out;
+  -webkit-filter: blur(0);
+          filter: blur(0); }
 
 .ink-drop {
-  transition: -webkit-transform 5s ease-out, -webkit-filter 5s ease-out;
-  transition: transform 5s ease-out, filter 5s ease-out;
-  transition: transform 5s ease-out, filter 5s ease-out, -webkit-transform 5s ease-out, -webkit-filter 5s ease-out; }
+  transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
+  transition: transform 5s cubic-bezier(0, 1.01, 1, 1);
+  transition: transform 5s cubic-bezier(0, 1.01, 1, 1), -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1); }
 
 .id-header {
   position: absolute;

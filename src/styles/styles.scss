@@ -11,7 +11,7 @@ body {
   // background-image: url(../images/bg.svg);
   // background-size: 30px 30px;
   // background-attachment: fixed;
-  // overflow: hidden; 
+  overflow: hidden; 
   // animation: backgroundScroll 1s linear 1;
   // // animation-fill-mode: forwards;
   // animation-iteration-count: infinite;
@@ -32,14 +32,24 @@ body {
 //   transform: scale(0);
 //   opacity: 0;
 // }
-
+#inks {
+  transition: filter 5s ease-out;
+  filter: blur(0);
+}
 .ink-drop {
-  transition: transform 5s ease-out, filter 5s ease-out;
+  transition: transform 5s cubic-bezier(0,1.01,1,1);
+  // filter: blur(10px);
   // transition: filter 10s ease-out;
   // filter: blur(10px);
   // transform: scale(0);
   // fill: #3B3B78;
+
+  // &--transfrom {
+  //   filter: blur(100px);
+  // }
 }
+
+
 
 .id-header {
   position: absolute;
