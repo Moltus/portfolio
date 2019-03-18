@@ -1,26 +1,27 @@
 
 let width = window.innerWidth;
 let height = window.innerHeight;
-let inkDropRadius = (width > height) ? width / 50 : height / 50;
+let isHorizontal = width > height;
+let inkDropRadius = (isHorizontal) ? width / 50 : height / 50;
 let inkDropTotal = 50;
 let inkDropsIds = [];
 const inkDropColors = ['#6cce74', '#c18d46', '#c14745', '#2e1e5b', '#9c37a6', '#76bdd1'];
 
-let container = document.getElementById("img-container");
+const container = document.getElementById("img-container");
 
 // create svg and all subelements using .createElementNS
-const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-svg.setAttributeNS(null, "viewBow", `-100 -100 ${width+100} ${height+100}`);
-// svg.setAttributeNS(null, "class", "ink-drop");
-svg.id = "inks";
-svg.setAttributeNS(null, "width", width+200);
-svg.setAttributeNS(null, "height", height+200);
-container.appendChild(svg);
+const inksSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+inksSVG.setAttributeNS(null, "viewBow", `0 0 ${width} ${height}`);
+// inksSVG.setAttributeNS(null, "class", "ink-drop");
+inksSVG.id = "inks";
+inksSVG.setAttributeNS(null, "width", width);
+inksSVG.setAttributeNS(null, "height", height);
+container.appendChild(inksSVG);
 // const FiltersGroup = document.createElementNS("http://www.w3.org/2000/svg", 'defs');
 // svg.appendChild(FiltersGroup);
-const InksGroup = document.createElementNS("http://www.w3.org/2000/svg", 'g');
-InksGroup.id = "inks-group";
-svg.appendChild(InksGroup);
+const inksGroup = document.createElementNS("http://www.w3.org/2000/svg", 'g');
+inksGroup.id = "inks-group";
+inksSVG.appendChild(inksGroup);
 
 function getInkInfo() {
   let posX = Math.floor(Math.random() * (width)) + 1;
@@ -55,7 +56,7 @@ for(let i=0; i < inkDropTotal; i++) {
   // blur.setAttributeNS(null, "stdDeviation", "20");
   // filter.appendChild(blur);
   // FiltersGroup.appendChild(filter);
-  InksGroup.appendChild(inkDrop);
+  inksGroup.appendChild(inkDrop);
 }
 
 let interval = setInterval(showRndCircle, 30);
