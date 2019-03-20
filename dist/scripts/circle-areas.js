@@ -6,22 +6,27 @@ let area1Center = (isHorizontal) ? [.25 * width, .5 * height] : [.5 * width, .25
 let area2Center = (isHorizontal) ? [.5 * width, .5 * height] : [.5 * width, .5 * height];
 let area3Center = (isHorizontal) ? [.75 * width, .5 * height] : [.5 * width, .75 * height];
 let circles = [];
+let circleInc = 1;
 
-const imgContainer = document.getElementById("img-container");
+const circlesContainer = document.getElementById("circles-container");
 
-function createAreaSVG(center, text) {
+function createAreaSVG(center, text, url) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.id = "link" + circleInc;
   const areaSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   areaSVG.setAttributeNS(null, "viewBow", `0 0 ${2 * circleRadius + strokeWidth * 2} ${2 * circleRadius + strokeWidth * 2}`);
   
   areaSVG.setAttributeNS(null, "width", circleRadius * 2 + strokeWidth * 2);
   areaSVG.setAttributeNS(null, "height", circleRadius * 2 + strokeWidth * 2);
 
+  areaSVG.id = "area-svg" + circleInc;
   areaSVG.setAttributeNS(null, "class", "area-svg");
 
   areaSVG.style.transform = `translate(${center[0] - circleRadius - strokeWidth}px, ${center[1] - circleRadius - strokeWidth}px)`;
 
   const arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-  arrow.id = "arrow" + (circles.length + 1);
+  arrow.id = "arrow" + (circleInc);
   arrow.setAttributeNS(null, "class", "arrow");
   arrow.setAttributeNS(null, "points", "0.5 0.82 0.5 18.74 17.81 9.87 0.5 0.82");
   arrow.setAttributeNS(null, "width", "40px");
@@ -30,7 +35,7 @@ function createAreaSVG(center, text) {
 
   
   const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  circle.id = "circle" + (circles.length + 1);
+  circle.id = "circle" + (circleInc);
   circle.setAttributeNS(null, "class", "area-circle");
   circles.push(circle.id);
   circle.setAttributeNS(null, "cx", circleRadius + strokeWidth);
@@ -43,7 +48,7 @@ function createAreaSVG(center, text) {
 
   const circleBg = document.createElement('div');
   circleBg.className = "circle-bg";
-  circleBg.id = "circle-bg" + (circles.length)
+  circleBg.id = "circle-bg" + (circleInc)
   circleBg.style.left = center[0] - circleRadius + "px";
   circleBg.style.top = center[1] - circleRadius + "px";
   circleBg.style.width = circleRadius * 2 + "px";
@@ -51,6 +56,7 @@ function createAreaSVG(center, text) {
 
 
   const circleTitle = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  circleTitle.id = "circle-title" + (circleInc)
   circleTitle.setAttributeNS(null,"x", '50%');     
   circleTitle.setAttributeNS(null,"y", '50%');
   circleTitle.setAttributeNS(null, "class", "circle-title");
@@ -60,36 +66,49 @@ function createAreaSVG(center, text) {
   const textNode = document.createTextNode(text);
   circleTitle.appendChild(textNode);
 
-  imgContainer.appendChild(circleBg);
-  imgContainer.appendChild(areaSVG);
-
+  circlesContainer.appendChild(link);
+  link.appendChild(circleBg);
+  link.appendChild(areaSVG);
+  
   areaSVG.appendChild(arrow);
   areaSVG.appendChild(circle);
   areaSVG.appendChild(circleTitle);
+
+  circleInc ++;
 }
 
 const bg = document.createElement('div');
 bg.className = "bg";
 
 setTimeout(function() {
-  const area1 = createAreaSVG(area1Center, "HOTEL PARMIS")
+  const area1 = createAreaSVG(area1Center, "HOTEL PARMIS", "https://parimis.benoitclement.fr");
 }, 1000);
 setTimeout(function() {
-  const area2 = createAreaSVG(area2Center, "CONNEXIONS")
+  const area2 = createAreaSVG(area2Center, "CONNEXIONS", "https://benoitclement.fr/cv2019");
   document.getElementById('circle-bg1').style.opacity = "1";
+  document.getElementById('circle-title1').style.fill = "#fff";
+  document.getElementById('circle-title1').style.strokeWidth = "0";
 }, 2000);
 setTimeout(function() {
-  const area3 = createAreaSVG(area3Center, "AUTRES")
+  const area3 = createAreaSVG(area3Center, "AUTRES", "#");
   document.getElementById('circle-bg2').style.opacity = "1";
+  document.getElementById('circle-title2').style.fill = "#fff";
+  document.getElementById('circle-title2').style.strokeWidth = "0";
 }, 3000);
 setTimeout(function() {
   document.getElementById('circle-bg3').style.opacity = "1";
+  document.getElementById('circle-title3').style.fill = "#fff";
+  document.getElementById('circle-title3').style.strokeWidth = "0";
+  
+}, 4000);
+setTimeout(function() {
   document.getElementById('arrow1').style.opacity ="1";
   document.getElementById('arrow1').style.animation = "arrowMove .5s linear forwards";
+  
   document.getElementById('arrow2').style.opacity ="1";
   document.getElementById('arrow2').style.animation = "arrowMove .5s linear forwards";
   document.getElementById('arrow3').style.opacity ="1";
   document.getElementById('arrow3').style.animation = "arrowMove .5s linear forwards";
-}, 4000);
+}, 4500)
 
 
