@@ -45,14 +45,31 @@ body {
   fill: transparent;
   stroke: #fff;
   stroke-width: 3px;
-  opacity: 0; }
+  opacity: 0;
+  transition: opacity 1s; }
+
+@-webkit-keyframes arrowMove {
+  50% {
+    -webkit-transform: translateX(15px);
+            transform: translateX(15px); }
+  100% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px); } }
+
+@keyframes arrowMove {
+  50% {
+    -webkit-transform: translateX(15px);
+            transform: translateX(15px); }
+  100% {
+    -webkit-transform: translateX(1px);
+            transform: translateX(1px); } }
 
 svg {
   position: absolute; }
 
 .area-circle {
   stroke-width: 3px;
-  stroke-dasharray: 1000;
+  stroke-dasharray: 1210;
   stroke-dashoffset: 1000;
   -webkit-animation: circleDraw 1s linear forwards;
           animation: circleDraw 1s linear forwards; }

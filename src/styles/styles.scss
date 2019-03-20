@@ -49,18 +49,17 @@ body {
   stroke : #fff;
   stroke-width: 3px;
   opacity: 0;
-  // transition: opacity 1s;
-  // animation: arrowMove 3s linear forwards;
+  transition: opacity 1s;
 }
 
-// @keyframes arrowMove {
-//   50% {
-//     transform: translateX(15px);
-//   }
-//   100% {
-//     transform: translateX(1px);
-//   }
-// }
+@keyframes arrowMove {
+  50% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(1px);
+  }
+}
 
 
 svg {
@@ -69,7 +68,7 @@ svg {
 
 .area-circle {
   stroke-width: 3px;
-  stroke-dasharray: 1000;
+  stroke-dasharray: 1210;
   stroke-dashoffset: 1000;
   animation: circleDraw 1s linear forwards;
 
@@ -83,10 +82,8 @@ svg {
 
 .area-svg {
   .circle-title {
-    // font-size: 30px;
     fill: transparent;
     stroke: #fff;
-    // stroke-miterlimit: 10;
     stroke-width: 1px;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;

@@ -9,7 +9,7 @@ let circles = [];
 
 const imgContainer = document.getElementById("img-container");
 
-function createAreaSVG(center) {
+function createAreaSVG(center, text) {
   const areaSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   areaSVG.setAttributeNS(null, "viewBow", `0 0 ${2 * circleRadius + strokeWidth * 2} ${2 * circleRadius + strokeWidth * 2}`);
   
@@ -18,8 +18,6 @@ function createAreaSVG(center) {
 
   areaSVG.setAttributeNS(null, "class", "area-svg");
 
-  // areaSVG.style.left = center[0] - circleRadius - strokeWidth;
-  // areaSVG.style.top = center[1] - circleRadius - strokeWidth;
   areaSVG.style.transform = `translate(${center[0] - circleRadius - strokeWidth}px, ${center[1] - circleRadius - strokeWidth}px)`;
 
   const arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
@@ -50,8 +48,7 @@ function createAreaSVG(center) {
   circleBg.style.top = center[1] - circleRadius + "px";
   circleBg.style.width = circleRadius * 2 + "px";
   circleBg.style.height = circleRadius  * 2 + "px";
-  // circleBg.style.opacity = "0";
-  // circleBg.style.opacity = "1";
+
 
   const circleTitle = document.createElementNS("http://www.w3.org/2000/svg", "text");
   circleTitle.setAttributeNS(null,"x", '50%');     
@@ -60,7 +57,7 @@ function createAreaSVG(center) {
   circleTitle.setAttributeNS(null, "font-size", circleRadius/5);
   circleTitle.setAttributeNS(null, "alignment-baseline", 'middle');
   circleTitle.setAttributeNS(null, "text-anchor", 'middle');
-  const textNode = document.createTextNode('HOTEL PARIMIS');
+  const textNode = document.createTextNode(text);
   circleTitle.appendChild(textNode);
 
   imgContainer.appendChild(circleBg);
@@ -75,26 +72,24 @@ const bg = document.createElement('div');
 bg.className = "bg";
 
 setTimeout(function() {
-  const area1 = createAreaSVG(area1Center)
-  // document.getElementById('circle-bg1').style.opacity = "1";
+  const area1 = createAreaSVG(area1Center, "HOTEL PARMIS")
 }, 1000);
 setTimeout(function() {
-  const area2 = createAreaSVG(area2Center)
+  const area2 = createAreaSVG(area2Center, "CONNEXIONS")
   document.getElementById('circle-bg1').style.opacity = "1";
 }, 2000);
 setTimeout(function() {
-  const area3 = createAreaSVG(area3Center)
+  const area3 = createAreaSVG(area3Center, "AUTRES")
   document.getElementById('circle-bg2').style.opacity = "1";
 }, 3000);
 setTimeout(function() {
   document.getElementById('circle-bg3').style.opacity = "1";
   document.getElementById('arrow1').style.opacity ="1";
-  // document.getElementById('arrow1').style.animation = "arrowMove .5s linear forwards";
+  document.getElementById('arrow1').style.animation = "arrowMove .5s linear forwards";
   document.getElementById('arrow2').style.opacity ="1";
-  // document.getElementById('arrow2').style.animation = "arrowMove .5s linear forwards";
+  document.getElementById('arrow2').style.animation = "arrowMove .5s linear forwards";
   document.getElementById('arrow3').style.opacity ="1";
-  // document.getElementById('arrow3').style.animation = "arrowMove .5s linear forwards";
+  document.getElementById('arrow3').style.animation = "arrowMove .5s linear forwards";
 }, 4000);
-// const area2 = createAreaSVG(area2Center);
-// const area3 = createAreaSVG(area3Center);
+
 
