@@ -1,3 +1,5 @@
+// TODO : tweak values for responsive... bigger circles for small screens
+
 let circleRadius = (isHorizontal) ? .1 * width : .1 * height;
 let strokeWidth = 3;
 let area1Center = (isHorizontal) ? [.25 * width, .5 * height] : [.5 * width, .25 * height];
@@ -12,19 +14,31 @@ function createAreaSVG(center) {
   areaSVG.setAttributeNS(null, "width", circleRadius * 2 + strokeWidth * 2);
   areaSVG.setAttributeNS(null, "height", circleRadius * 2 + strokeWidth * 2);
 
+  areaSVG.setAttributeNS(null, "class", "area-svg");
+
   // areaSVG.style.left = center[0] - circleRadius - strokeWidth;
   // areaSVG.style.top = center[1] - circleRadius - strokeWidth;
   areaSVG.style.transform = `translate(${center[0] - circleRadius - strokeWidth}px, ${center[1] - circleRadius - strokeWidth}px)`;
+
+  const arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+  arrow.id = "arrow" + (circles.length + 1);
+  arrow.setAttributeNS(null, "class", "arrow-path");
+  arrow.setAttributeNS(null, "points", "0.5 0.82 0.5 18.74 17.81 9.87 0.5 0.82");
+  arrow.setAttributeNS(null, "width", "40px");
+  arrow.setAttributeNS(null, "height", "40px");
+
+
+  
   const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-
   circle.id = "circle" + (circles.length + 1);
+  circle.setAttributeNS(null, "class", "area-circle");
   circles.push(circle.id);
-  circle.setAttributeNS(null, "cx", circleRadius + strokeWidth);
-  circle.setAttributeNS(null, "cy", circleRadius + strokeWidth);
-  circle.setAttributeNS(null, "r", circleRadius);
+  circle.setAttributeNS(null, "cx", (circleRadius + strokeWidth).toString());
+  circle.setAttributeNS(null, "cy", (circleRadius + strokeWidth).toString());
+  circle.setAttributeNS(null, "r", circleRadius.toString());
 
-  circle.style.stroke = "white";
-  circle.style.strokeWidth = strokeWidth;
+  circle.style.stroke = "#fff";
+  circle.style.strokeWidth = strokeWidth.toString();
   circle.style.fill = "transparent";
 
   const circleBg = document.createElement('div');
@@ -37,10 +51,22 @@ function createAreaSVG(center) {
   // circleBg.style.opacity = "0";
   // circleBg.style.opacity = "1";
 
+  const circleTitle = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  circleTitle.setAttributeNS(null,"x", '50%');     
+  circleTitle.setAttributeNS(null,"y", '50%');
+  circleTitle.setAttributeNS(null, "class", "circle-title");
+  circleTitle.setAttributeNS(null, "font-size", circleRadius/5);
+  circleTitle.setAttributeNS(null, "alignment-baseline", 'middle');
+  circleTitle.setAttributeNS(null, "text-anchor", 'middle');
+  const textNode = document.createTextNode('HOTEL PARIMIS');
+  circleTitle.appendChild(textNode);
+
   container.appendChild(circleBg);
   container.appendChild(areaSVG);
 
+  areaSVG.appendChild(arrow);
   areaSVG.appendChild(circle);
+  areaSVG.appendChild(circleTitle);
 }
 
 const bg = document.createElement('div');

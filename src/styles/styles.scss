@@ -10,31 +10,7 @@ body {
   background-color: #2a2a2a;
   background-image: url(../images/bg.svg);
   overflow: hidden; 
-  // background-size: 30px 30px;
-  // background-attachment: fixed;
-  // animation: backgroundScroll 1s linear 1;
-  // animation-iteration-count: infinite;
-
-  // @keyframes backgroundScroll {
-  //   from {background-position: 0 0;}
-  //   to {background-position: 30px -30px;}
-  // }
 }
-
-// .clip-svg {
-//   clip-path: url(#circlesClipPath);
-// }
-
-// svg .circle {
-//   // fill: grey;
-//   transition: opacity 1s, transform 1s;
-//   transform: scale(0);
-//   opacity: 0;
-// }
-// #inks {
-//   transition: filter 5s ease-out;
-//   filter: blur(0);
-// }
 
 .circle-bg {
   position: absolute;
@@ -59,11 +35,29 @@ body {
   }
 }
 
+.arrow-path {
+  fill : transparent;
+  stroke : #fff;
+  // fill : #fff;
+  stroke-width: 3px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: arrow 3s 1s linear forwards;
+}
+
+@keyframes arrow {
+  to {
+    stroke-dashoffset: 0;
+    // fill: #282828;
+    fill: #fff;
+  }
+}
+
 
 svg {
   position: absolute;
 
-   #circle1, #circle2, #circle3 {
+   .area-circle {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: dash 1s linear forwards;
@@ -76,21 +70,33 @@ svg {
   }
 }
 
+.area-svg {
+  .circle-title {
+    // font-size: 30px;
+    fill: transparent;
+    stroke: #fff;
+    // stroke-miterlimit: 10;
+    stroke-width: 1px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: letter 10s linear forwards;
+    font-family: Roboto-Black, Roboto;
+    font-weight: 800;
+
+    @keyframes letter {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}
+
 
 .ink-drop {
   transition: transform 5s cubic-bezier(0,1.01,1,1);
   filter: blur(10px);
-  // transition: filter 10s ease-out;
-  // filter: blur(10px);
-  // transform: scale(0);
-  // fill: #3B3B78;
-
-  // &--transfrom {
-  //   filter: blur(100px);
-  // }
+  
 }
-
-
 
 .id-header {
   position: absolute;
