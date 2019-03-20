@@ -7,7 +7,7 @@ let inkDropTotal = 50;
 let inkDropsIds = [];
 const inkDropColors = ['#6cce74', '#c18d46', '#c14745', '#2e1e5b', '#9c37a6', '#76bdd1'];
 
-const container = document.getElementById("img-container");
+const backgroundContainer = document.getElementById("background-container");
 
 // create svg and all subelements using .createElementNS
 const inksSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -16,7 +16,7 @@ inksSVG.setAttributeNS(null, "viewBow", `0 0 ${width} ${height}`);
 inksSVG.id = "inks";
 inksSVG.setAttributeNS(null, "width", width);
 inksSVG.setAttributeNS(null, "height", height);
-container.appendChild(inksSVG);
+backgroundContainer.appendChild(inksSVG);
 // const FiltersGroup = document.createElementNS("http://www.w3.org/2000/svg", 'defs');
 // svg.appendChild(FiltersGroup);
 const inksGroup = document.createElementNS("http://www.w3.org/2000/svg", 'g');
@@ -43,19 +43,10 @@ for(let i=0; i < inkDropTotal; i++) {
   inkDrop.style.fill = color;
   inkDrop.style.transform = 'scale(0)';
   inkDrop.style.transformOrigin = posX +  "px " + posY + "px";
-  // inkDrop.style.filter = 'blur(5px)';
 
-  
   inkDrop.setAttributeNS(null, "class", "ink-drop");
 
-  // create blur filers for circles and set their default deviation : 0;
-  // let filter = document.createElementNS("http://www.w3.org/2000/svg", "filter");
-  // filter.id = inkDrop.id + "--filter";
-  // let blur = document.createElementNS("http://www.w3.org/2000/svg", "feGaussianBlur");
-  // blur.setAttributeNS(null, "in", "SourceGraphic");
-  // blur.setAttributeNS(null, "stdDeviation", "20");
-  // filter.appendChild(blur);
-  // FiltersGroup.appendChild(filter);
+
   inksGroup.appendChild(inkDrop);
 }
 
@@ -69,13 +60,8 @@ function showRndCircle() {
     let rndId =  inkDropsIds[rndIndex];
     inkDropsIds.splice(rndIndex, 1);
     
-    // document.getElementById(rndId).classList.add("ind-drop--transform");
-    
     document.getElementById(rndId).style.transform = 'scale(10)';
-    // document.getElementById(rndId).style.filter = 'blur(100px)';
     document.getElementById("inks").style.filter = 'blur(8vmax)';
-    
-    // document.getElementById(rndId).style.opacity = 1;
     
   }
 }

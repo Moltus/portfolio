@@ -12,6 +12,15 @@ body {
   overflow: hidden; 
 }
 
+#logo {
+  width: 50px;
+  height: 50px;
+  fill: #fff;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .circle-bg {
   position: absolute;
   transition: opacity 1s;
@@ -35,39 +44,41 @@ body {
   }
 }
 
-.arrow-path {
+.arrow {
   fill : transparent;
   stroke : #fff;
-  // fill : #fff;
   stroke-width: 3px;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: arrow 3s 1s linear forwards;
+  opacity: 0;
+  // transition: opacity 1s;
+  // animation: arrowMove 3s linear forwards;
 }
 
-@keyframes arrow {
-  to {
-    stroke-dashoffset: 0;
-    // fill: #282828;
-    fill: #fff;
-  }
-}
+// @keyframes arrowMove {
+//   50% {
+//     transform: translateX(15px);
+//   }
+//   100% {
+//     transform: translateX(1px);
+//   }
+// }
 
 
 svg {
   position: absolute;
+}
 
-   .area-circle {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: dash 1s linear forwards;
-  }
+.area-circle {
+  stroke-width: 3px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: circleDraw 1s linear forwards;
 
-  @keyframes dash {
+  @keyframes circleDraw {
     to {
       stroke-dashoffset: 0;
     }
   }
+
 }
 
 .area-svg {
@@ -79,11 +90,11 @@ svg {
     stroke-width: 1px;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: letter 10s linear forwards;
+    animation: titleDraw 10s linear forwards;
     font-family: Roboto-Black, Roboto;
     font-weight: 800;
 
-    @keyframes letter {
+    @keyframes titleDraw {
       to {
         stroke-dashoffset: 0;
       }

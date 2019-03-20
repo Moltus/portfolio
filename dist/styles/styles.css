@@ -6,6 +6,14 @@ body {
   background-image: url(../images/bg.svg);
   overflow: hidden; }
 
+#logo {
+  width: 50px;
+  height: 50px;
+  fill: #fff;
+  position: absolute;
+  top: 20px;
+  left: 20px; }
+
 .circle-bg {
   position: absolute;
   transition: opacity 1s;
@@ -33,38 +41,27 @@ body {
   to {
     background-position: 30px -30px; } }
 
-.arrow-path {
+.arrow {
   fill: transparent;
   stroke: #fff;
   stroke-width: 3px;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  -webkit-animation: arrow 3s 1s linear forwards;
-          animation: arrow 3s 1s linear forwards; }
-
-@-webkit-keyframes arrow {
-  to {
-    stroke-dashoffset: 0;
-    fill: #fff; } }
-
-@keyframes arrow {
-  to {
-    stroke-dashoffset: 0;
-    fill: #fff; } }
+  opacity: 0; }
 
 svg {
   position: absolute; }
-  svg .area-circle {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    -webkit-animation: dash 1s linear forwards;
-            animation: dash 1s linear forwards; }
 
-@-webkit-keyframes dash {
+.area-circle {
+  stroke-width: 3px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: circleDraw 1s linear forwards;
+          animation: circleDraw 1s linear forwards; }
+
+@-webkit-keyframes circleDraw {
   to {
     stroke-dashoffset: 0; } }
 
-@keyframes dash {
+@keyframes circleDraw {
   to {
     stroke-dashoffset: 0; } }
 
@@ -74,16 +71,16 @@ svg {
   stroke-width: 1px;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  -webkit-animation: letter 10s linear forwards;
-          animation: letter 10s linear forwards;
+  -webkit-animation: titleDraw 10s linear forwards;
+          animation: titleDraw 10s linear forwards;
   font-family: Roboto-Black, Roboto;
   font-weight: 800; }
 
-@-webkit-keyframes letter {
+@-webkit-keyframes titleDraw {
   to {
     stroke-dashoffset: 0; } }
 
-@keyframes letter {
+@keyframes titleDraw {
   to {
     stroke-dashoffset: 0; } }
 
