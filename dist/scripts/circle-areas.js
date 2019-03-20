@@ -84,13 +84,13 @@ setTimeout(function() {
   const area1 = createAreaSVG(area1Center, "HOTEL PARMIS", "https://parimis.benoitclement.fr");
 }, 1000);
 setTimeout(function() {
-  const area2 = createAreaSVG(area2Center, "CONNEXIONS", "https://benoitclement.fr/cv2019");
+  const area2 = createAreaSVG(area2Center, "CONNEXIONS", "../cv2019");
   document.getElementById('circle-bg1').style.opacity = "1";
   document.getElementById('circle-title1').style.fill = "#fff";
   document.getElementById('circle-title1').style.strokeWidth = "0";
 }, 2000);
 setTimeout(function() {
-  const area3 = createAreaSVG(area3Center, "AUTRES", "#");
+  const area3 = createAreaSVG(area3Center, "AUTRES", "https://github.com/benoitclement");
   document.getElementById('circle-bg2').style.opacity = "1";
   document.getElementById('circle-title2').style.fill = "#fff";
   document.getElementById('circle-title2').style.strokeWidth = "0";
