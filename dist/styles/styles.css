@@ -16,18 +16,16 @@ body {
 
 .circle-bg {
   position: absolute;
-  opacity: 0;
-  transition: opacity 1s, background-image 1s;
+  opacity: 1;
+  transition: opacity 3s;
   background-color: #2a2a2a;
   background-image: url(/images/bg.svg);
   background-size: 30px 30px;
   background-attachment: fixed;
   -webkit-clip-path: circle(50%);
           clip-path: circle(50%);
-  -webkit-animation: backgroundScroll 1s linear 1;
-          animation: backgroundScroll 1s linear 1;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  -webkit-animation: backgroundScroll 1s linear infinite, clipPath .5s ease-out;
+          animation: backgroundScroll 1s linear infinite, clipPath .5s ease-out; }
 
 @-webkit-keyframes backgroundScroll {
   from {
@@ -41,6 +39,22 @@ body {
   to {
     background-position: 30px -30px; } }
 
+@-webkit-keyframes clipPath {
+  from {
+    -webkit-clip-path: circle(0%);
+            clip-path: circle(0%); }
+  to {
+    -webkit-clip-path: circle(50%);
+            clip-path: circle(50%); } }
+
+@keyframes clipPath {
+  from {
+    -webkit-clip-path: circle(0%);
+            clip-path: circle(0%); }
+  to {
+    -webkit-clip-path: circle(50%);
+            clip-path: circle(50%); } }
+
 #link1:hover #circle-bg1 {
   background-image: url(/images/bg-invert.svg); }
 
@@ -50,53 +64,56 @@ body {
 #link3:hover #circle-bg3 {
   background-image: url(/images/bg-invert.svg); }
 
-#circle-title1 {
+.circle-title {
+  position: absolute;
   -webkit-transform-origin: inherit;
           transform-origin: inherit;
   transition: -webkit-transform 1s;
   transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s; }
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-animation: spinning .5s ease-out;
+          animation: spinning .5s ease-out; }
+
+@-webkit-keyframes spinning {
+  from {
+    -webkit-transform: scale(0) rotate(0);
+            transform: scale(0) rotate(0); }
+  to {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg); } }
+
+@keyframes spinning {
+  from {
+    -webkit-transform: scale(0) rotate(0);
+            transform: scale(0) rotate(0); }
+  to {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg); } }
 
 #link1:hover #circle-title1 {
-  -webkit-transform-origin: inherit;
-          transform-origin: inherit;
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
-
-#circle-title2 {
-  -webkit-transform-origin: inherit;
-          transform-origin: inherit;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s; }
 
 #link2:hover #circle-title2 {
-  -webkit-transform-origin: inherit;
-          transform-origin: inherit;
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
-#circle-title3 {
-  -webkit-transform-origin: inherit;
-          transform-origin: inherit;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s; }
-
 #link3:hover #circle-title3 {
-  -webkit-transform-origin: inherit;
-          transform-origin: inherit;
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
 .arrow {
   fill: transparent;
   stroke: #fff;
+  opacity: 1;
   stroke-width: 3px;
-  opacity: 0;
+  -webkit-animation: arrowMove .25s ease-out .5s backwards;
+          animation: arrowMove .25s ease-out .5s backwards;
   transition: opacity 1s; }
 
 @-webkit-keyframes arrowMove {
+  0% {
+    opacity: 0; }
   50% {
     -webkit-transform: translateX(15px);
             transform: translateX(15px); }
@@ -105,6 +122,8 @@ body {
             transform: translateX(1px); } }
 
 @keyframes arrowMove {
+  0% {
+    opacity: 0; }
   50% {
     -webkit-transform: translateX(15px);
             transform: translateX(15px); }
@@ -117,38 +136,34 @@ svg {
 
 .area-circle {
   stroke-width: 3px;
-  stroke-dasharray: 1210;
-  stroke-dashoffset: 1000;
-  -webkit-animation: circleDraw 1s linear forwards;
-          animation: circleDraw 1s linear forwards; }
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: growing .5s ease-out;
+          animation: growing .5s ease-out; }
 
-@-webkit-keyframes circleDraw {
+@-webkit-keyframes growing {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
   to {
-    stroke-dashoffset: 0; } }
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 
-@keyframes circleDraw {
+@keyframes growing {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
   to {
-    stroke-dashoffset: 0; } }
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 
 .area-svg .circle-title {
   fill: transparent;
   stroke: #fff;
   transition: fill 2s;
   stroke-width: 1px;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  -webkit-animation: titleDraw 10s linear forwards;
-          animation: titleDraw 10s linear forwards;
   font-family: Roboto;
   font-weight: 800; }
-
-@-webkit-keyframes titleDraw {
-  to {
-    stroke-dashoffset: 0; } }
-
-@keyframes titleDraw {
-  to {
-    stroke-dashoffset: 0; } }
 
 .ink-drop {
   transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);

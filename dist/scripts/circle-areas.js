@@ -55,24 +55,19 @@ function createAreaSVG(center, text, url) {
   circleBg.style.height = circleRadius  * 2 + "px";
 
 
-  const circleTitle = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  const circleTitle = document.createElement("h2");
   circleTitle.id = "circle-title" + (circleInc)
-  circleTitle.setAttributeNS(null,"x", '50%');     
-  circleTitle.setAttributeNS(null,"y", '50%');
-  circleTitle.setAttributeNS(null, "class", "circle-title");
-  circleTitle.setAttributeNS(null, "font-size", circleRadius/5);
-  circleTitle.setAttributeNS(null, "alignment-baseline", 'middle');
-  circleTitle.setAttributeNS(null, "text-anchor", 'middle');
+  circleTitle.className = "circle-title";
   const textNode = document.createTextNode(text);
   circleTitle.appendChild(textNode);
 
   circlesContainer.appendChild(link);
   link.appendChild(circleBg);
   link.appendChild(areaSVG);
+  link.appendChild(circleTitle);
   
   areaSVG.appendChild(arrow);
   areaSVG.appendChild(circle);
-  areaSVG.appendChild(circleTitle);
 
   circleInc ++;
 }
@@ -81,34 +76,14 @@ const bg = document.createElement('div');
 bg.className = "bg";
 
 setTimeout(function() {
-  const area1 = createAreaSVG(area1Center, "HOTEL PARMIS", "https://parimis.benoitclement.fr");
+  const area1 = createAreaSVG(area1Center, "HOTEL PARIMIS", "https://parimis.benoitclement.fr");
+}, 500);
+setTimeout(function() {
+  const area2 = createAreaSVG(area2Center, "COMPÉTENCES", "../cv2019");
 }, 1000);
 setTimeout(function() {
-  const area2 = createAreaSVG(area2Center, "CONNEXIONS", "../cv2019");
-  document.getElementById('circle-bg1').style.opacity = "1";
-  document.getElementById('circle-title1').style.fill = "#fff";
-  document.getElementById('circle-title1').style.strokeWidth = "0";
-}, 2000);
-setTimeout(function() {
   const area3 = createAreaSVG(area3Center, "AUTRES", "https://github.com/benoitclement");
-  document.getElementById('circle-bg2').style.opacity = "1";
-  document.getElementById('circle-title2').style.fill = "#fff";
-  document.getElementById('circle-title2').style.strokeWidth = "0";
-}, 3000);
-setTimeout(function() {
-  document.getElementById('circle-bg3').style.opacity = "1";
-  document.getElementById('circle-title3').style.fill = "#fff";
-  document.getElementById('circle-title3').style.strokeWidth = "0";
-  
-}, 4000);
-setTimeout(function() {
-  document.getElementById('arrow1').style.opacity ="1";
-  document.getElementById('arrow1').style.animation = "arrowMove .5s linear forwards";
-  
-  document.getElementById('arrow2').style.opacity ="1";
-  document.getElementById('arrow2').style.animation = "arrowMove .5s linear forwards";
-  document.getElementById('arrow3').style.opacity ="1";
-  document.getElementById('arrow3').style.animation = "arrowMove .5s linear forwards";
-}, 4500)
+}, 1500);
+
 
 

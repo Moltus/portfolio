@@ -50,11 +50,12 @@ for(let i=0; i < inkDropTotal; i++) {
   inksGroup.appendChild(inkDrop);
 }
 
-let interval = setInterval(showRndCircle, 30);
+var interval = setInterval(showRndCircle, 30);
 
 function showRndCircle() {
   if (inkDropsIds.length === 0) {
     clearInterval(interval);
+    console.log("cleared interval");
   } else {
     let rndIndex = Math.floor(Math.random() * inkDropsIds.length);
     let rndId =  inkDropsIds[rndIndex];
@@ -62,6 +63,6 @@ function showRndCircle() {
     
     document.getElementById(rndId).style.transform = 'scale(10)';
     document.getElementById("inks").style.filter = 'blur(8vmax)';
-    
+    console.log(interval);
   }
 }
