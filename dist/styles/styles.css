@@ -74,6 +74,8 @@ body {
 
 .disk-title {
   color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
   transition: -webkit-transform 1s;
   transition: transform 1s;
   transition: transform 1s, -webkit-transform 1s;
