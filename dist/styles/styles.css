@@ -3,7 +3,6 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #2a2a2a;
-  background-image: url(../images/bg.svg);
   overflow: hidden; }
 
 #logo {
@@ -14,18 +13,23 @@ body {
   top: 20px;
   left: 20px; }
 
-.circle-bg {
+.disk {
   position: absolute;
+  display: flex;
+  align-items: center;
+  /* Vertical center alignment */
+  justify-content: center;
+  /* Horizontal center alignment */
+  border-radius: 50%;
+  border: 3px solid #fff;
   opacity: 1;
   transition: opacity 3s;
   background-color: #2a2a2a;
   background-image: url(/images/bg.svg);
   background-size: 30px 30px;
   background-attachment: fixed;
-  -webkit-clip-path: circle(50%);
-          clip-path: circle(50%);
-  -webkit-animation: backgroundScroll 1s linear infinite, clipPath .5s ease-out;
-          animation: backgroundScroll 1s linear infinite, clipPath .5s ease-out; }
+  -webkit-animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out;
+          animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out; }
 
 @-webkit-keyframes backgroundScroll {
   from {
@@ -39,35 +43,37 @@ body {
   to {
     background-position: 30px -30px; } }
 
-@-webkit-keyframes clipPath {
+@-webkit-keyframes diskGrow {
   from {
-    -webkit-clip-path: circle(0%);
-            clip-path: circle(0%); }
+    -webkit-transform: scale(0);
+            transform: scale(0); }
   to {
-    -webkit-clip-path: circle(50%);
-            clip-path: circle(50%); } }
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 
-@keyframes clipPath {
+@keyframes diskGrow {
   from {
-    -webkit-clip-path: circle(0%);
-            clip-path: circle(0%); }
+    -webkit-transform: scale(0);
+            transform: scale(0); }
   to {
-    -webkit-clip-path: circle(50%);
-            clip-path: circle(50%); } }
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 
-#link1:hover #circle-bg1 {
+.disk-link {
+  text-decoration: none;
+  display: block; }
+
+#disk-link1:hover #disk1 {
   background-image: url(/images/bg-invert.svg); }
 
-#link2:hover #circle-bg2 {
+#disk-link2:hover #disk2 {
   background-image: url(/images/bg-invert.svg); }
 
-#link3:hover #circle-bg3 {
+#disk-link3:hover #disk3 {
   background-image: url(/images/bg-invert.svg); }
 
-.circle-title {
-  position: absolute;
-  -webkit-transform-origin: inherit;
-          transform-origin: inherit;
+.disk-title {
+  color: #fff;
   transition: -webkit-transform 1s;
   transition: transform 1s;
   transition: transform 1s, -webkit-transform 1s;
@@ -90,23 +96,21 @@ body {
     -webkit-transform: scale(1) rotate(360deg);
             transform: scale(1) rotate(360deg); } }
 
-#link1:hover #circle-title1 {
+#disk-link1:hover #disk-title1 {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
-#link2:hover #circle-title2 {
+#disk-link2:hover #disk-title2 {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
-#link3:hover #circle-title3 {
+#disk-link3:hover #disk-title3 {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
-.arrow {
-  fill: transparent;
-  stroke: #fff;
+.arrowSVG {
+  position: absolute;
   opacity: 1;
-  stroke-width: 3px;
   -webkit-animation: arrowMove .25s ease-out .5s backwards;
           animation: arrowMove .25s ease-out .5s backwards;
   transition: opacity 1s; }
@@ -131,39 +135,10 @@ body {
     -webkit-transform: translateX(1px);
             transform: translateX(1px); } }
 
-svg {
-  position: absolute; }
-
-.area-circle {
-  stroke-width: 3px;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-  -webkit-animation: growing .5s ease-out;
-          animation: growing .5s ease-out; }
-
-@-webkit-keyframes growing {
-  from {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-
-@keyframes growing {
-  from {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-
-.area-svg .circle-title {
+.arrow {
   fill: transparent;
   stroke: #fff;
-  transition: fill 2s;
-  stroke-width: 1px;
-  font-family: Roboto;
-  font-weight: 800; }
+  stroke-width: 3px; }
 
 .ink-drop {
   transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);

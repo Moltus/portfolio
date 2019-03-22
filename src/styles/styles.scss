@@ -8,7 +8,6 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #2a2a2a;
-  background-image: url(../images/bg.svg);
   overflow: hidden; 
 }
 
@@ -20,9 +19,17 @@ body {
   top: 20px;
   left: 20px;
 }
+// #disks-container {
+//   position: absolute;
+// }
 
-.circle-bg {
+.disk {
   position: absolute;
+  display:flex;
+  align-items: center; /* Vertical center alignment */
+  justify-content: center; /* Horizontal center alignment */
+  border-radius: 50%;
+  border: 3px solid #fff;
   opacity: 1;
   transition: opacity 3s;
   background-color: #2a2a2a;
@@ -30,9 +37,9 @@ body {
   background-size: 30px 30px;
   background-attachment: fixed;
 
-  clip-path: circle(50%);
+  // clip-path: disk(50%);
 
-  animation: backgroundScroll 1s linear infinite, clipPath .5s ease-out;
+  animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out;
   // animation-iteration-count: 
 
   @keyframes backgroundScroll {
@@ -40,27 +47,30 @@ body {
     to {background-position: 30px -30px;}
   }
 
-  @keyframes clipPath {
-    from {clip-path: circle(0%);}
-    to {clip-path: circle(50%);}
+  @keyframes diskGrow {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
   }
 }
 
-#link1:hover #circle-bg1 {
+.disk-link {
+  text-decoration: none;
+  display: block;
+}
+
+#disk-link1:hover #disk1 {
   background-image: url(/images/bg-invert.svg);
 }
 
-#link2:hover #circle-bg2 {
+#disk-link2:hover #disk2 {
   background-image: url(/images/bg-invert.svg);
 }
-#link3:hover #circle-bg3 {
+#disk-link3:hover #disk3 {
   background-image: url(/images/bg-invert.svg);
 }
 
-.circle-title {
-  position: absolute;
-  transform-origin: inherit;
-  // transform: rotate(0);
+.disk-title {
+  color: #fff;
   transition: transform 1s;
   animation: spinning .5s ease-out;
 
@@ -70,23 +80,21 @@ body {
   }
 }
 
-#link1:hover #circle-title1 {
+#disk-link1:hover #disk-title1 {
   transform: rotate(360deg);
 }
 
-#link2:hover #circle-title2 {
+#disk-link2:hover #disk-title2 {
   transform: rotate(360deg);
 }
 
-#link3:hover #circle-title3 {
+#disk-link3:hover #disk-title3 {
   transform: rotate(360deg);
 }
 
-.arrow {
-  fill : transparent;
-  stroke : #fff;
+.arrowSVG {
+  position: absolute;
   opacity: 1;
-  stroke-width: 3px;
   animation: arrowMove .25s ease-out .5s backwards;
   transition: opacity 1s;
 
@@ -103,34 +111,23 @@ body {
   }
 }
 
-
-svg {
-  position: absolute;
-  
-}
-
-.area-circle {
+.arrow {
+  fill : transparent;
+  stroke : #fff;
   stroke-width: 3px;
-  transform-origin: center;
-  animation: growing .5s ease-out;
-
-  @keyframes growing{
-    from {transform: scale(0);}
-    to {transform: scale(1);}
-  }
-
 }
 
-.area-svg {
-  .circle-title {
-    fill: transparent;
-    stroke: #fff;
-    transition: fill 2s;
-    stroke-width: 1px;
-    font-family: Roboto;
-    font-weight: 800;
-  }
-}
+
+// .area-disk {
+//   stroke-width: 3px;
+//   transform-origin: center;
+//   animation: growing .5s ease-out;
+
+//   @keyframes growing{
+//     from {transform: scale(0);}
+//     to {transform: scale(1);}
+//   }
+// }
 
 
 .ink-drop {
