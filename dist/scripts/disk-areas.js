@@ -23,10 +23,8 @@ function createArea(center, text, url) {
   arrowSVG.setAttributeNS(null, "class", "arrowSVG");
   const arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
   arrowSVG.appendChild(arrow);
-  // arrowSVG.setAttributeNS(null, "width", "40px");
-  // arrowSVG.setAttributeNS(null, "height", "40px");
-  // arrowSVG.style.left = - diskDiameter;
-  // arrowSVG.style.top = - diskDiameter / 4;
+  arrowSVG.style.left = center[0] - diskDiameter / 2 + "px";
+  arrowSVG.style.top = center[1] - diskDiameter / 2 + "px";
   arrow.id = "arrow" + diskInc;
   arrow.setAttributeNS(null, "class", "arrow");
   arrow.setAttributeNS(null, "points", "0.5 0.82 0.5 18.74 17.81 9.87 0.5 0.82");
@@ -49,10 +47,10 @@ function createArea(center, text, url) {
   disksContainer.appendChild(circularArea);
   circularArea.appendChild(diskLink);
   
+  circularArea.appendChild(arrowSVG);
   diskLink.appendChild(disk);
   disk.appendChild(diskTitle);
   
-  disk.appendChild(arrowSVG);
 
   diskInc ++;
 }
