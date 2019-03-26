@@ -64,10 +64,10 @@ setTimeout(function() {
   const area1 = createArea(area1Center, "HOTEL PARIMIS", "https://parimis.benoitclement.fr");
 }, 500);
 setTimeout(function() {
-  const area2 = createArea(area2Center, "COMPÉTENCES", "../cv2019");
+  const area2 = createArea(area2Center, "MIND-MAPPING", "../cv2019");
 }, 1000);
 setTimeout(function() {
-  const area3 = createArea(area3Center, "AUTRES...", "https://github.com/benoitclement");
+  const area3 = createArea(area3Center, "AUTRES TRAVAUX", "https://github.com/benoitclement");
 }, 1500);
 
 
