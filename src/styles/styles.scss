@@ -12,16 +12,95 @@ body {
 }
 
 #logo {
-  width: 50px;
-  height: 50px;
+  width: 72.5px;
+  height: 72.5px;
   fill: #fff;
   position: absolute;
   top: 20px;
   left: 20px;
 }
-// #disks-container {
-//   position: absolute;
-// }
+
+#logo:hover .logo__b {
+  animation: b .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes b {
+  0% {transform: translate(0, 0);}
+  50% {transform: translate(-25px, 0);}
+  100% {transform: translate(0, 0);}
+} 
+
+#logo:hover .logo__c{
+  animation: c .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+} 
+
+@keyframes c {
+  0% {transform: translate(0, 0);}
+  50% {transform: translate(25px, 0);}
+  100% {transform: translate(0, 0);}
+} 
+
+#logo:hover .logo__b-top__circle {
+  animation: circle1 2.5s .5s ease-in-out forwards;
+}
+
+@keyframes circle1 {
+  
+  0% {transform: translate(0, 0);}
+  20% {transform: translate(-75px, 0);}
+  30% {transform: translate(-75px, -75px);}
+  50% {transform: translate(-75px, 175px);}
+  70% {transform: translate(175px, 175px);}
+  80% {transform: translate(175px, 75px);}
+  90% {transform: translate(100px, 75px);}
+  100% {transform: translate(100px, 100px);}
+}
+
+#logo:hover .logo__c-top__circle {
+  animation: circle2 2.5s .5s ease-in-out forwards;
+}
+
+@keyframes circle2 {
+  0% {transform: translate(0, 0);}
+  10% {transform: translate(0, 30px);}
+  20% {transform: translate(75px, 30px);}
+  30% {transform: translate(75px, -75px);}
+  50% {transform: translate(-175px, -75px);}
+  70% {transform: translate(-175px, 175px);}
+  80% {transform: translate(-175px, 100px);}
+  100% {transform: translate(-100px, 100px);}
+}
+
+
+#logo:hover .logo__c-bot__circle {
+  animation: circle3 2.5s .5s ease-in-out forwards;
+}
+
+@keyframes circle3 {
+  0% {transform: translate(0, 0);}
+  10% {transform: translate(0, -30px);}
+  20% {transform: translate(75px, -30px);}
+  30% {transform: translate(75px, 75px);}
+  50% {transform: translate(75px, -175px);}
+  70% {transform: translate(-175px, -175px);}
+  80% {transform: translate(-175px, -100px);}
+  100% {transform: translate(-100px, -100px);}
+}
+
+#logo:hover .logo__b-bot__circle {
+  animation: circle4 2.5s .5s ease-in-out forwards;
+}
+
+@keyframes circle4 {
+  0% {transform: translate(0, 0);}
+  20% {transform: translate(-75px, 0);}
+  30% {transform: translate(-75px, 75px);}
+  50% {transform: translate(175px, 75px);}
+  70% {transform: translate(175px, -175px);}
+  80% {transform: translate(175px, -75px);}
+  90% {transform: translate(100px, -75px);}
+  100% {transform: translate(100px, -100px);}
+}
 
 .disk {
   position: absolute;

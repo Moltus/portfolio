@@ -6,12 +6,288 @@ body {
   overflow: hidden; }
 
 #logo {
-  width: 50px;
-  height: 50px;
+  width: 72.5px;
+  height: 72.5px;
   fill: #fff;
   position: absolute;
   top: 20px;
   left: 20px; }
+
+#logo:hover .logo__b {
+  -webkit-animation: b 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+          animation: b 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
+
+@-webkit-keyframes b {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  50% {
+    -webkit-transform: translate(-25px, 0);
+            transform: translate(-25px, 0); }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } }
+
+@keyframes b {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  50% {
+    -webkit-transform: translate(-25px, 0);
+            transform: translate(-25px, 0); }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } }
+
+#logo:hover .logo__c {
+  -webkit-animation: c 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+          animation: c 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
+
+@-webkit-keyframes c {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  50% {
+    -webkit-transform: translate(25px, 0);
+            transform: translate(25px, 0); }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } }
+
+@keyframes c {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  50% {
+    -webkit-transform: translate(25px, 0);
+            transform: translate(25px, 0); }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } }
+
+#logo:hover .logo__b-top__circle {
+  -webkit-animation: circle1 2.5s .5s ease-in-out forwards;
+          animation: circle1 2.5s .5s ease-in-out forwards; }
+
+@-webkit-keyframes circle1 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  20% {
+    -webkit-transform: translate(-75px, 0);
+            transform: translate(-75px, 0); }
+  30% {
+    -webkit-transform: translate(-75px, -75px);
+            transform: translate(-75px, -75px); }
+  50% {
+    -webkit-transform: translate(-75px, 175px);
+            transform: translate(-75px, 175px); }
+  70% {
+    -webkit-transform: translate(175px, 175px);
+            transform: translate(175px, 175px); }
+  80% {
+    -webkit-transform: translate(175px, 75px);
+            transform: translate(175px, 75px); }
+  90% {
+    -webkit-transform: translate(100px, 75px);
+            transform: translate(100px, 75px); }
+  100% {
+    -webkit-transform: translate(100px, 100px);
+            transform: translate(100px, 100px); } }
+
+@keyframes circle1 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  20% {
+    -webkit-transform: translate(-75px, 0);
+            transform: translate(-75px, 0); }
+  30% {
+    -webkit-transform: translate(-75px, -75px);
+            transform: translate(-75px, -75px); }
+  50% {
+    -webkit-transform: translate(-75px, 175px);
+            transform: translate(-75px, 175px); }
+  70% {
+    -webkit-transform: translate(175px, 175px);
+            transform: translate(175px, 175px); }
+  80% {
+    -webkit-transform: translate(175px, 75px);
+            transform: translate(175px, 75px); }
+  90% {
+    -webkit-transform: translate(100px, 75px);
+            transform: translate(100px, 75px); }
+  100% {
+    -webkit-transform: translate(100px, 100px);
+            transform: translate(100px, 100px); } }
+
+#logo:hover .logo__c-top__circle {
+  -webkit-animation: circle2 2.5s .5s ease-in-out forwards;
+          animation: circle2 2.5s .5s ease-in-out forwards; }
+
+@-webkit-keyframes circle2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  10% {
+    -webkit-transform: translate(0, 30px);
+            transform: translate(0, 30px); }
+  20% {
+    -webkit-transform: translate(75px, 30px);
+            transform: translate(75px, 30px); }
+  30% {
+    -webkit-transform: translate(75px, -75px);
+            transform: translate(75px, -75px); }
+  50% {
+    -webkit-transform: translate(-175px, -75px);
+            transform: translate(-175px, -75px); }
+  70% {
+    -webkit-transform: translate(-175px, 175px);
+            transform: translate(-175px, 175px); }
+  80% {
+    -webkit-transform: translate(-175px, 100px);
+            transform: translate(-175px, 100px); }
+  100% {
+    -webkit-transform: translate(-100px, 100px);
+            transform: translate(-100px, 100px); } }
+
+@keyframes circle2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  10% {
+    -webkit-transform: translate(0, 30px);
+            transform: translate(0, 30px); }
+  20% {
+    -webkit-transform: translate(75px, 30px);
+            transform: translate(75px, 30px); }
+  30% {
+    -webkit-transform: translate(75px, -75px);
+            transform: translate(75px, -75px); }
+  50% {
+    -webkit-transform: translate(-175px, -75px);
+            transform: translate(-175px, -75px); }
+  70% {
+    -webkit-transform: translate(-175px, 175px);
+            transform: translate(-175px, 175px); }
+  80% {
+    -webkit-transform: translate(-175px, 100px);
+            transform: translate(-175px, 100px); }
+  100% {
+    -webkit-transform: translate(-100px, 100px);
+            transform: translate(-100px, 100px); } }
+
+#logo:hover .logo__c-bot__circle {
+  -webkit-animation: circle3 2.5s .5s ease-in-out forwards;
+          animation: circle3 2.5s .5s ease-in-out forwards; }
+
+@-webkit-keyframes circle3 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  10% {
+    -webkit-transform: translate(0, -30px);
+            transform: translate(0, -30px); }
+  20% {
+    -webkit-transform: translate(75px, -30px);
+            transform: translate(75px, -30px); }
+  30% {
+    -webkit-transform: translate(75px, 75px);
+            transform: translate(75px, 75px); }
+  50% {
+    -webkit-transform: translate(75px, -175px);
+            transform: translate(75px, -175px); }
+  70% {
+    -webkit-transform: translate(-175px, -175px);
+            transform: translate(-175px, -175px); }
+  80% {
+    -webkit-transform: translate(-175px, -100px);
+            transform: translate(-175px, -100px); }
+  100% {
+    -webkit-transform: translate(-100px, -100px);
+            transform: translate(-100px, -100px); } }
+
+@keyframes circle3 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  10% {
+    -webkit-transform: translate(0, -30px);
+            transform: translate(0, -30px); }
+  20% {
+    -webkit-transform: translate(75px, -30px);
+            transform: translate(75px, -30px); }
+  30% {
+    -webkit-transform: translate(75px, 75px);
+            transform: translate(75px, 75px); }
+  50% {
+    -webkit-transform: translate(75px, -175px);
+            transform: translate(75px, -175px); }
+  70% {
+    -webkit-transform: translate(-175px, -175px);
+            transform: translate(-175px, -175px); }
+  80% {
+    -webkit-transform: translate(-175px, -100px);
+            transform: translate(-175px, -100px); }
+  100% {
+    -webkit-transform: translate(-100px, -100px);
+            transform: translate(-100px, -100px); } }
+
+#logo:hover .logo__b-bot__circle {
+  -webkit-animation: circle4 2.5s .5s ease-in-out forwards;
+          animation: circle4 2.5s .5s ease-in-out forwards; }
+
+@-webkit-keyframes circle4 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  20% {
+    -webkit-transform: translate(-75px, 0);
+            transform: translate(-75px, 0); }
+  30% {
+    -webkit-transform: translate(-75px, 75px);
+            transform: translate(-75px, 75px); }
+  50% {
+    -webkit-transform: translate(175px, 75px);
+            transform: translate(175px, 75px); }
+  70% {
+    -webkit-transform: translate(175px, -175px);
+            transform: translate(175px, -175px); }
+  80% {
+    -webkit-transform: translate(175px, -75px);
+            transform: translate(175px, -75px); }
+  90% {
+    -webkit-transform: translate(100px, -75px);
+            transform: translate(100px, -75px); }
+  100% {
+    -webkit-transform: translate(100px, -100px);
+            transform: translate(100px, -100px); } }
+
+@keyframes circle4 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  20% {
+    -webkit-transform: translate(-75px, 0);
+            transform: translate(-75px, 0); }
+  30% {
+    -webkit-transform: translate(-75px, 75px);
+            transform: translate(-75px, 75px); }
+  50% {
+    -webkit-transform: translate(175px, 75px);
+            transform: translate(175px, 75px); }
+  70% {
+    -webkit-transform: translate(175px, -175px);
+            transform: translate(175px, -175px); }
+  80% {
+    -webkit-transform: translate(175px, -75px);
+            transform: translate(175px, -75px); }
+  90% {
+    -webkit-transform: translate(100px, -75px);
+            transform: translate(100px, -75px); }
+  100% {
+    -webkit-transform: translate(100px, -100px);
+            transform: translate(100px, -100px); } }
 
 .disk {
   position: absolute;
