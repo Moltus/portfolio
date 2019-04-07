@@ -51,8 +51,8 @@ body {
   30% {transform: translate(-75px, -75px);}
   50% {transform: translate(-75px, 175px);}
   70% {transform: translate(175px, 175px);}
-  80% {transform: translate(175px, 75px);}
-  90% {transform: translate(100px, 75px);}
+  80% {transform: translate(175px, 70px);}
+  90% {transform: translate(100px, 70px);}
   100% {transform: translate(100px, 100px);}
 }
 
@@ -97,8 +97,8 @@ body {
   30% {transform: translate(-75px, 75px);}
   50% {transform: translate(175px, 75px);}
   70% {transform: translate(175px, -175px);}
-  80% {transform: translate(175px, -75px);}
-  90% {transform: translate(100px, -75px);}
+  80% {transform: translate(175px, -70px);}
+  90% {transform: translate(100px, -70px);}
   100% {transform: translate(100px, -100px);}
 }
 
