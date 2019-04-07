@@ -388,35 +388,77 @@ body {
 
 .arrowSVG {
   position: absolute;
-  opacity: 1;
-  -webkit-animation: arrowMove .25s ease-out .5s backwards;
-          animation: arrowMove .25s ease-out .5s backwards;
-  transition: opacity 1s; }
+  -webkit-animation: disappear .5s, arrow .25s ease-out .5s forwards;
+          animation: disappear .5s, arrow .25s ease-out .5s forwards; }
 
-@-webkit-keyframes arrowMove {
+@-webkit-keyframes disappear {
   0% {
     opacity: 0; }
-  50% {
-    -webkit-transform: translateX(15px);
-            transform: translateX(15px); }
+  95% {
+    opacity: 0; }
   100% {
-    -webkit-transform: translateX(1px);
-            transform: translateX(1px); } }
+    opacity: 1; } }
 
-@keyframes arrowMove {
+@keyframes disappear {
   0% {
     opacity: 0; }
-  50% {
-    -webkit-transform: translateX(15px);
-            transform: translateX(15px); }
+  95% {
+    opacity: 0; }
   100% {
-    -webkit-transform: translateX(1px);
-            transform: translateX(1px); } }
+    opacity: 1; } }
+
+@-webkit-keyframes arrow {
+  0% { }
+  50% {
+    -webkit-transform: translateX(20px);
+            transform: translateX(20px); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes arrow {
+  0% { }
+  50% {
+    -webkit-transform: translateX(20px);
+            transform: translateX(20px); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
 
 .arrow {
-  fill: transparent;
+  fill: #fff;
   stroke: #fff;
-  stroke-width: 3px; }
+  transition: -webkit-transform .25s;
+  transition: transform .25s;
+  transition: transform .25s, -webkit-transform .25s; }
+
+#disk-link1:hover #arrow1 {
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px); }
+
+#disk-link2:hover #arrow2 {
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px); }
+
+#disk-link3:hover #arrow3 {
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px); }
+
+@-webkit-keyframes goRight {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  to {
+    -webkit-transform: translateX(20px);
+            transform: translateX(20px); } }
+
+@keyframes goRight {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  to {
+    -webkit-transform: translateX(20px);
+            transform: translateX(20px); } }
 
 .ink-drop {
   transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);

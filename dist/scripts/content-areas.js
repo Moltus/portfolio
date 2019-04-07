@@ -23,7 +23,7 @@ function createArea(center, text, url) {
   arrowSVG.setAttributeNS(null, "class", "arrowSVG");
   const arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
   arrowSVG.appendChild(arrow);
-  arrowSVG.style.width = '20px';
+  arrowSVG.style.width = '40px';
   arrowSVG.style.height = '20px';
   arrowSVG.style.left = center[0] - diskDiameter / 2 + "px";
   arrowSVG.style.top = center[1] - diskDiameter / 2 + "px";
@@ -49,9 +49,10 @@ function createArea(center, text, url) {
   disksContainer.appendChild(circularArea);
   circularArea.appendChild(diskLink);
   
-  circularArea.appendChild(arrowSVG);
+  diskLink.appendChild(arrowSVG);
   diskLink.appendChild(disk);
   disk.appendChild(diskTitle);
+
   
 
   diskInc ++;
