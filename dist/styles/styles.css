@@ -5,7 +5,7 @@ body {
   background-color: #2a2a2a;
   overflow: hidden; }
 
-#logo {
+#logo-bc {
   width: 72.5px;
   height: 72.5px;
   fill: #fff;
@@ -13,7 +13,7 @@ body {
   top: 20px;
   left: 20px; }
 
-#logo:hover .logo__b {
+#logo-bc.animated .logo__b {
   -webkit-animation: b 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
           animation: b 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
 
@@ -39,7 +39,7 @@ body {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0); } }
 
-#logo:hover .logo__c {
+#logo-bc.animated .logo__c {
   -webkit-animation: c 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
           animation: c 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
 
@@ -65,7 +65,7 @@ body {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0); } }
 
-#logo:hover .logo__b-top__circle {
+#logo-bc.animated .logo__b-top__circle {
   -webkit-animation: circle1 2.5s .5s ease-in-out forwards;
           animation: circle1 2.5s .5s ease-in-out forwards; }
 
@@ -121,7 +121,7 @@ body {
     -webkit-transform: translate(100px, 100px);
             transform: translate(100px, 100px); } }
 
-#logo:hover .logo__c-top__circle {
+#logo-bc.animated .logo__c-top__circle {
   -webkit-animation: circle2 2.5s .5s ease-in-out forwards;
           animation: circle2 2.5s .5s ease-in-out forwards; }
 
@@ -177,7 +177,7 @@ body {
     -webkit-transform: translate(-100px, 100px);
             transform: translate(-100px, 100px); } }
 
-#logo:hover .logo__c-bot__circle {
+#logo-bc.animated .logo__c-bot__circle {
   -webkit-animation: circle3 2.5s .5s ease-in-out forwards;
           animation: circle3 2.5s .5s ease-in-out forwards; }
 
@@ -233,7 +233,7 @@ body {
     -webkit-transform: translate(-100px, -100px);
             transform: translate(-100px, -100px); } }
 
-#logo:hover .logo__b-bot__circle {
+#logo-bc.animated .logo__b-bot__circle {
   -webkit-animation: circle4 2.5s .5s ease-in-out forwards;
           animation: circle4 2.5s .5s ease-in-out forwards; }
 
@@ -339,13 +339,13 @@ body {
   text-decoration: none;
   display: block; }
 
-#disk-link1:hover #disk1 {
+#disk-link1.animated #disk1 {
   background-image: url(/images/bg-invert.svg); }
 
-#disk-link2:hover #disk2 {
+#disk-link2.animated #disk2 {
   background-image: url(/images/bg-invert.svg); }
 
-#disk-link3:hover #disk3 {
+#disk-link3.animated #disk3 {
   background-image: url(/images/bg-invert.svg); }
 
 .disk-title {
@@ -374,15 +374,15 @@ body {
     -webkit-transform: scale(1) rotate(360deg);
             transform: scale(1) rotate(360deg); } }
 
-#disk-link1:hover #disk-title1 {
+#disk-link1.animated #disk-title1 {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
-#disk-link2:hover #disk-title2 {
+#disk-link2.animated #disk-title2 {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
-#disk-link3:hover #disk-title3 {
+#disk-link3.animated #disk-title3 {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
@@ -432,15 +432,15 @@ body {
   transition: transform .25s;
   transition: transform .25s, -webkit-transform .25s; }
 
-#disk-link1:hover #arrow1 {
+#disk-link1.animated #arrow1 {
   -webkit-transform: translateX(20px);
           transform: translateX(20px); }
 
-#disk-link2:hover #arrow2 {
+#disk-link2.animated #arrow2 {
   -webkit-transform: translateX(20px);
           transform: translateX(20px); }
 
-#disk-link3:hover #arrow3 {
+#disk-link3.animated #arrow3 {
   -webkit-transform: translateX(20px);
           transform: translateX(20px); }
 

@@ -24,14 +24,14 @@
   <div id="wrapper" class="wrapper">
     <div id="background-container"></div>
     <header>
-      <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290">
+      <svg id="logo-bc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290">
         <defs>
           <style>
               @import url(styles/styles.css);
           </style>
         </defs>
         <title>logo-anim</title>
-        <g class="logo__b">
+        <g id="logo__b" class="logo__b">
           <path class="logo__b-top" d="M95,240a45,45,0,0,0,0-90H50v15H95a30,30,0,0,1,0,60"/>   
           <circle class="logo__b-top__circle" cx="95" cy="95" r="20"/>
           <path class="logo__b-bot" d="M95,65a30,30,0,0,1,0,60H50v15H95a45,45,0,0,0,0-90"/>
@@ -54,6 +54,16 @@
 
   <script src="scripts/blurred-colors.js"></script>
   <script src="scripts/content-areas.js"></script>
-  <!-- <script src="scripts/events.js"></script> -->
+  <script>
+    const logoBC = document.getElementById('logo-bc');
+
+    logoBC.addEventListener('mouseover', function() {
+      if (logoBC.classList.contains('animated')) return;
+      else {
+        logoBC.classList.add('animated');
+        setTimeout(function(){logoBC.classList.remove('animated');}, 3000);
+      }
+    })
+  </script>
 </body>
 </html>

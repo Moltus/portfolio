@@ -11,7 +11,7 @@ body {
   overflow: hidden; 
 }
 
-#logo {
+#logo-bc {
   width: 72.5px;
   height: 72.5px;
   fill: #fff;
@@ -20,7 +20,7 @@ body {
   left: 20px;
 }
 
-#logo:hover .logo__b {
+#logo-bc.animated .logo__b {
   animation: b .5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -30,7 +30,7 @@ body {
   100% {transform: translate(0, 0);}
 } 
 
-#logo:hover .logo__c{
+#logo-bc.animated .logo__c{
   animation: c .5s cubic-bezier(0.165, 0.84, 0.44, 1);
 } 
 
@@ -40,7 +40,7 @@ body {
   100% {transform: translate(0, 0);}
 } 
 
-#logo:hover .logo__b-top__circle {
+#logo-bc.animated .logo__b-top__circle {
   animation: circle1 2.5s .5s ease-in-out forwards;
 }
 
@@ -56,7 +56,7 @@ body {
   100% {transform: translate(100px, 100px);}
 }
 
-#logo:hover .logo__c-top__circle {
+#logo-bc.animated .logo__c-top__circle {
   animation: circle2 2.5s .5s ease-in-out forwards;
 }
 
@@ -72,7 +72,7 @@ body {
 }
 
 
-#logo:hover .logo__c-bot__circle {
+#logo-bc.animated .logo__c-bot__circle {
   animation: circle3 2.5s .5s ease-in-out forwards;
 }
 
@@ -87,7 +87,7 @@ body {
   100% {transform: translate(-100px, -100px);}
 }
 
-#logo:hover .logo__b-bot__circle {
+#logo-bc.animated .logo__b-bot__circle {
   animation: circle4 2.5s .5s ease-in-out forwards;
 }
 
@@ -137,14 +137,14 @@ body {
   display: block;
 }
 
-#disk-link1:hover #disk1 {
+#disk-link1.animated #disk1 {
   background-image: url(/images/bg-invert.svg);
 }
 
-#disk-link2:hover #disk2 {
+#disk-link2.animated #disk2 {
   background-image: url(/images/bg-invert.svg);
 }
-#disk-link3:hover #disk3 {
+#disk-link3.animated #disk3 {
   background-image: url(/images/bg-invert.svg);
 }
 
@@ -161,15 +161,15 @@ body {
   }
 }
 
-#disk-link1:hover #disk-title1 {
+#disk-link1.animated #disk-title1 {
   transform: rotate(360deg);
 }
 
-#disk-link2:hover #disk-title2 {
+#disk-link2.animated #disk-title2 {
   transform: rotate(360deg);
 }
 
-#disk-link3:hover #disk-title3 {
+#disk-link3.animated #disk-title3 {
   transform: rotate(360deg);
 }
 
@@ -200,15 +200,15 @@ body {
   transition: transform .25s;
 }
 
-#disk-link1:hover #arrow1 {
+#disk-link1.animated #arrow1 {
   transform: translateX(20px);
 }
 
-#disk-link2:hover #arrow2 {
+#disk-link2.animated #arrow2 {
   transform: translateX(20px);
 }
 
-#disk-link3:hover #arrow3 {
+#disk-link3.animated #arrow3 {
   transform: translateX(20px);
 }
 
