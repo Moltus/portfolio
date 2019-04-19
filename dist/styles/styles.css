@@ -348,13 +348,16 @@ body {
 #disk-link3:hover #disk3 {
   background-image: url(/images/bg-invert.svg); }
 
+#disk-link4:hover #disk4 {
+  background-image: url(/images/bg-invert.svg); }
+
 .disk-title {
   color: #fff;
   font-family: Roboto, sans-serif;
   font-weight: 300;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
+  transition: -webkit-transform .5s linear;
+  transition: transform .5s linear;
+  transition: transform .5s linear, -webkit-transform .5s linear;
   -webkit-animation: spinning .5s ease-out;
           animation: spinning .5s ease-out; }
 
@@ -386,7 +389,11 @@ body {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg); }
 
-.arrowSVG {
+#disk-link4:hover #disk-title4 {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg); }
+
+.diskArrow {
   position: absolute;
   -webkit-animation: disappear .5s, arrow .25s ease-out .5s forwards;
           animation: disappear .5s, arrow .25s ease-out .5s forwards; }
@@ -466,3 +473,6 @@ body {
   transition: transform 5s cubic-bezier(0, 1.01, 1, 1), -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
   -webkit-filter: blur(10px);
           filter: blur(10px); }
+
+.scroll-arrow {
+  position: absolute; }

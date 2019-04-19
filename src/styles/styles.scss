@@ -1,7 +1,4 @@
 
-$creaColor: #6D314F;
-$codeColor: #3B3B78;
-$commColor: #5F3270;
 
 body {
   margin: 0;
@@ -147,12 +144,15 @@ body {
 #disk-link3:hover #disk3 {
   background-image: url(/images/bg-invert.svg);
 }
+#disk-link4:hover #disk4 {
+  background-image: url(/images/bg-invert.svg);
+}
 
 .disk-title {
   color: #fff;
   font-family: Roboto, sans-serif;
   font-weight: 300;
-  transition: transform 1s;
+  transition: transform .5s linear;
   animation: spinning .5s ease-out;
 
   @keyframes spinning {
@@ -172,8 +172,11 @@ body {
 #disk-link3:hover #disk-title3 {
   transform: rotate(360deg);
 }
+#disk-link4:hover #disk-title4 {
+  transform: rotate(360deg);
+}
 
-.arrowSVG {
+.diskArrow {
   position: absolute;
   animation: disappear .5s, arrow .25s ease-out .5s forwards;
 
@@ -237,3 +240,8 @@ body {
 }
 
 
+.scroll-arrow {
+  position:  absolute;
+  // width: 50px;
+  // height: 50px;
+}
