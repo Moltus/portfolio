@@ -474,5 +474,11 @@ body {
   -webkit-filter: blur(10px);
           filter: blur(10px); }
 
+.circular-area {
+  transition: left .5s; }
+
 .scroll-arrow {
-  position: absolute; }
+  position: absolute;
+  fill: #fff;
+  cursor: pointer;
+  transition: opacity 1s; }

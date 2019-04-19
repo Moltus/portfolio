@@ -13,8 +13,11 @@ const disksContainer = document.getElementById("disks-container");
 
 function createArea(center, text, url) {
   const circularArea = document.createElement("div");
-  circularArea.id = "circularArea" + diskInc;
-  circularArea.className = "circularArea";
+  circularArea.id = "circular-area" + diskInc;
+  circularArea.className = "circular-area";
+  circularArea.style.position = "absolute";
+  circularArea.style.left = "0";
+  circularArea.style.top = "0";
   const diskLink = document.createElement("a");
   diskLink.href = url;
   diskLink.id = "disk-link" + diskInc;
@@ -65,30 +68,84 @@ function createScrollArrows() {
     // when screen is horizontal create icon for scrolling left
     const scrollArrowLeft = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     scrollArrowLeft.setAttributeNS(null, "class", "scroll-arrow");
-    scrollArrowLeft.setAttributeNS(null, "viewbox", "0 0 512 512");
-    scrollArrowLeft.setAttributeNS(null, "height", "512px");
-    scrollArrowLeft.setAttributeNS(null, "width", "512px");
+    scrollArrowLeft.setAttributeNS(null, "viewbox", "0 0 100 100");
+    scrollArrowLeft.setAttributeNS(null, "height", "100px");
+    scrollArrowLeft.setAttributeNS(null, "width", "100px");
     scrollArrowLeft.id = "scroll-arrow-left";
     const arrowLeft = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-    arrowLeft.setAttributeNS(null, "points", "318.8,445.2 129.6,256 318.8,66.8 361.2,109.2 214.4,256 361.2,402.8  ");
+    arrowLeft.setAttributeNS(null, "points", "68,19.1 29.7,49.1 68,79.1 69.2,77.6 32.9,49.1 69.2,20.6 68,19.1 ");
 
-    scrollArrowLeft.style.left = .1 * width;
-    scrollArrowLeft.style.top = .5 * height;
+    scrollArrowLeft.style.left = .04 * width - 50 + "px";
+    scrollArrowLeft.style.top = .5 * height - 50 + "px";
     scrollArrowLeft.appendChild(arrowLeft);
     disksContainer.appendChild(scrollArrowLeft);
+    scrollArrowLeft.style.transform = `scale(${width/1500})`;
+    scrollArrowLeft.style.opacity = "0";
 
 
     // when screen is horizontal create icon for scrolling right
     const scrollArrowRight = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    scrollArrowRight.setAttributeNS(null, "class", "scrollArrow");
+    scrollArrowRight.setAttributeNS(null, "class", "scroll-arrow");
+    scrollArrowRight.setAttributeNS(null, "viewbox", "0 0 100 100");
+    scrollArrowRight.setAttributeNS(null, "height", "100px");
+    scrollArrowRight.setAttributeNS(null, "width", "100px");
     scrollArrowRight.id = "scroll-arrow-right";
-    const arrowRight = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    arrowRight.setAttributeNS(null, "d", "M1280 896q0 14-9 23l-320 320q-9 9-23 9-13 0-22.5-9.5t-9.5-22.5v-192h-352q-13 0-22.5-9.5t-9.5-22.5v-192q0-13 9.5-22.5t22.5-9.5h352v-192q0-14 9-23t23-9q12 0 24 10l319 319q9 9 9 23zm160 0q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z");
+    const arrowRight = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    arrowRight.setAttributeNS(null, "points", "30.4,20.6 66.7,49.1 30.4,77.6 31.6,79.1 69.9,49.1 31.6,19.1 30.4,20.6 ");
+
+    scrollArrowRight.style.right = .04 * width - 50 + "px";
+    scrollArrowRight.style.top = .5 * height - 50 + "px";
+    scrollArrowRight.appendChild(arrowRight);
+    disksContainer.appendChild(scrollArrowRight);
+    scrollArrowRight.style.transform = `scale(${width/1500})`;
+    scrollArrowRight.style.opacity = "0";
+
+    return [scrollArrowLeft, scrollArrowRight];
+
+  } else {
+    // when screen is vertical create icon for scrolling top
+    const scrollArrowTop = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    scrollArrowTop.setAttributeNS(null, "class", "scroll-arrow");
+    scrollArrowTop.setAttributeNS(null, "viewbox", "0 0 100 100");
+    scrollArrowTop.setAttributeNS(null, "height", "100px");
+    scrollArrowTop.setAttributeNS(null, "width", "100px");
+    scrollArrowTop.id = "scroll-arrow-top";
+    const arrowTop = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    arrowTop.setAttributeNS(null, "points", "22.4,64.1 50.8,36.5 79.3,64.1 80.8,63.2 50.8,34.1 20.8,63.2 22.4,64.1 ");
+
+    scrollArrowTop.style.left = .5 * width - 50 + "px";
+    scrollArrowTop.style.top = .04 * height - 50 + "px";
+    scrollArrowTop.appendChild(arrowTop);
+    disksContainer.appendChild(scrollArrowTop);
+    scrollArrowTop.style.transform = `scale(${height/1500})`;
+    scrollArrowTop.style.opacity = "0";
+
+
+    // when screen is vertical create icon for scrolling bottom
+    const scrollArrowBottom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    scrollArrowBottom.setAttributeNS(null, "class", "scroll-arrow");
+    scrollArrowBottom.setAttributeNS(null, "viewbox", "0 0 100 100");
+    scrollArrowBottom.setAttributeNS(null, "height", "100px");
+    scrollArrowBottom.setAttributeNS(null, "width", "100px");
+    scrollArrowBottom.id = "scroll-arrow-bottom";
+    const arrowBottom = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    arrowBottom.setAttributeNS(null, "points", "23.1,34.1 51.5,61.7 80,34.1 81.5,35 51.5,64.1 21.5,35 23.1,34.1 ");
+
+    scrollArrowBottom.style.left = .5 * width - 50 + "px";
+    scrollArrowBottom.style.bottom = .04 * height - 50 + "px";
+    scrollArrowBottom.appendChild(arrowBottom);
+    disksContainer.appendChild(scrollArrowBottom);
+    scrollArrowBottom.style.transform = `scale(${height/1500})`;
+    scrollArrowBottom.style.opacity = "0";
+
+    return [scrollArrowTop, scrollArrowBottom];
   }
 }
 
 const bg = document.createElement('div');
 bg.className = "bg";
+
+const scrollArrows = createScrollArrows();
 
 setTimeout(function() {
   const area1 = createArea(area1Center, "HOTEL PARIMIS", "https://parimis.benoitclement.fr");
@@ -101,8 +158,10 @@ setTimeout(function() {
 }, 1500);
 setTimeout(function() {
   const area4 = createArea(area4Center, "AUTRES TRAVAUX", "https://github.com/benoitclement");
-  area4.style.opacity = "0";
-  createScrollArrows();
+  area4.style.display = "none";
+  scrollArrows[0].style.opacity = "1";
+  scrollArrows[1].style.opacity = "1";
+  
 }, 2000);
 
 
