@@ -1,7 +1,4 @@
 
-let width = window.innerWidth;
-let height = window.innerHeight;
-let isHorizontal = width > height;
 let inkDropRadius = (isHorizontal) ? width / 50 : height / 50;
 let inkDropTotal = 50;
 let inkDropsIds = [];

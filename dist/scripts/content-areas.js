@@ -13,8 +13,8 @@ function createArea(text, url, hidden) {
   circularArea.id = "circular-area" + diskInc;
   circularArea.className = "circular-area";
   circularArea.style.position = "absolute";
-  circularArea.style.left = "0";
-  circularArea.style.top = "0";
+  circularArea.style.left = areaCenter[0] - diskDiameter / 2 + "px";
+  circularArea.style.top = areaCenter[1] - diskDiameter / 2 + "px";
   if (hidden) circularArea.style.display = "none";
   const diskLink = document.createElement("a");
   diskLink.href = url;
@@ -22,13 +22,11 @@ function createArea(text, url, hidden) {
   diskLink.className = "disk-link";
 
   const diskArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  diskArrow.setAttributeNS(null, "class", "diskArrow");
+  diskArrow.setAttributeNS(null, "class", "disk-arrow");
   const arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
   diskArrow.appendChild(arrow);
   diskArrow.style.width = '40px';
   diskArrow.style.height = '20px';
-  diskArrow.style.left = areaCenter[0] - diskDiameter / 2 + "px";
-  diskArrow.style.top = areaCenter[1] - diskDiameter / 2 + "px";
   arrow.id = "arrow" + diskInc;
   arrow.setAttributeNS(null, "class", "arrow");
   arrow.setAttributeNS(null, "points", "0.5 0.82 0.5 18.74 17.81 9.87 0.5 0.82");
@@ -36,8 +34,6 @@ function createArea(text, url, hidden) {
   const disk = document.createElement('div');
   disk.className = "disk";
   disk.id = "disk" + diskInc;
-  disk.style.left = areaCenter[0] - diskDiameter / 2 + "px";
-  disk.style.top = areaCenter[1] - diskDiameter / 2 + "px";
   disk.style.width = diskDiameter + "px";
   disk.style.height = diskDiameter + "px";
 
