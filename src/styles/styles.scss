@@ -247,9 +247,13 @@ body {
   position:  absolute;
   fill: #fff;
   cursor: pointer;
-  transition: opacity 1s;
+  animation: scrollArrow 1s;
 }
 
+@keyframes scrollArrow {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 #scroll-arrow-left {
 
 }

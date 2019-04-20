@@ -1,26 +1,26 @@
-const diskList = document.getElementsByClassName('circular-area');
-console.log(diskList);
-let diskIndex = 0;
+// we get "disks" array and "width" (window width) from content-areas.js
+console.log(disks);
 
 if (isHorizontal) {
   const scrollLeft = document.getElementById("scroll-arrow-left");
   scrollLeft.addEventListener('click', function() {
-    diskList[diskIndex + 3].style.display = "block";
-    diskList[diskIndex].style.display = "none";
-    diskIndex += 1;
-    for (let i of diskList) {
+    disks[0].style.display = "block";
+    disks[3].style.display = "none";
+    disks.splice(0, 0, disks.splice(disks.length-1, 1)[0]);
+    console.log(disks);
+    for (let i in disks) {
       // i.style.transform = `translateX(${-width * .25} px)`;
-      i.style.left = -diskIndex * width * .25 + "px";
+      console.log(i);
+      disks[i].style.left = i * .25 * width + "px";
     }
   })
 
   const scrollRight = document.getElementById("scroll-arrow-right");
   scrollRight.addEventListener('click', function() {
-    diskList[diskIndex + 2].style.display = "none";
-    diskList[diskIndex - 1].style.display = "block";
-    diskIndex -= 1;
-    for (let i of diskList) {
-      i.style.left = diskIndex * width * .25 + "px";
+    disks[diskIndex].style.display = "none";
+    disks[diskIndex + 3].style.display = "block";
+    for (let i of disks) {
+      i.style.left = - (diskIndex - 1) * width * .25 + "px";
     }
   })
 }

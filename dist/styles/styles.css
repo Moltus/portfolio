@@ -481,4 +481,17 @@ body {
   position: absolute;
   fill: #fff;
   cursor: pointer;
-  transition: opacity 1s; }
+  -webkit-animation: scrollArrow 1s;
+          animation: scrollArrow 1s; }
+
+@-webkit-keyframes scrollArrow {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes scrollArrow {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }

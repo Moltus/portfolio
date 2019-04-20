@@ -1,23 +1,21 @@
 // TODO : tweak values for responsive... bigger disks for small screens
 let disksOnScreen = 3;
 let diskDiameter = (isHorizontal) ? .6 * width / disksOnScreen : .6 * height / disksOnScreen;
-// TODO : make a function to return area center for each disk depending on how many disks are there
-let area1Center = (isHorizontal) ? [.25 * width, .5 * height] : [.5 * width, .25 * height];
-let area2Center = (isHorizontal) ? [.5 * width, .5 * height] : [.5 * width, .5 * height];
-let area3Center = (isHorizontal) ? [.75 * width, .5 * height] : [.5 * width, .75 * height];
-let area4Center = (isHorizontal) ? [width, .5 * height] : [.5 * width, height];
+
 let disks = [];
-let diskInc = 1;
+let diskInc = 0;
 
 const disksContainer = document.getElementById("disks-container");
 
-function createArea(center, text, url) {
+function createArea(text, url, hidden) {
   const circularArea = document.createElement("div");
+  let areaCenter = (isHorizontal) ? [diskInc * .25 * width, .5 * height] : [.5 * width, diskInc * .25 * height]
   circularArea.id = "circular-area" + diskInc;
   circularArea.className = "circular-area";
   circularArea.style.position = "absolute";
   circularArea.style.left = "0";
   circularArea.style.top = "0";
+  if (hidden) circularArea.style.display = "none";
   const diskLink = document.createElement("a");
   diskLink.href = url;
   diskLink.id = "disk-link" + diskInc;
@@ -29,8 +27,8 @@ function createArea(center, text, url) {
   diskArrow.appendChild(arrow);
   diskArrow.style.width = '40px';
   diskArrow.style.height = '20px';
-  diskArrow.style.left = center[0] - diskDiameter / 2 + "px";
-  diskArrow.style.top = center[1] - diskDiameter / 2 + "px";
+  diskArrow.style.left = areaCenter[0] - diskDiameter / 2 + "px";
+  diskArrow.style.top = areaCenter[1] - diskDiameter / 2 + "px";
   arrow.id = "arrow" + diskInc;
   arrow.setAttributeNS(null, "class", "arrow");
   arrow.setAttributeNS(null, "points", "0.5 0.82 0.5 18.74 17.81 9.87 0.5 0.82");
@@ -38,8 +36,8 @@ function createArea(center, text, url) {
   const disk = document.createElement('div');
   disk.className = "disk";
   disk.id = "disk" + diskInc;
-  disk.style.left = center[0] - diskDiameter / 2 + "px";
-  disk.style.top = center[1] - diskDiameter / 2 + "px";
+  disk.style.left = areaCenter[0] - diskDiameter / 2 + "px";
+  disk.style.top = areaCenter[1] - diskDiameter / 2 + "px";
   disk.style.width = diskDiameter + "px";
   disk.style.height = diskDiameter + "px";
 
@@ -80,7 +78,7 @@ function createScrollArrows() {
     scrollArrowLeft.appendChild(arrowLeft);
     disksContainer.appendChild(scrollArrowLeft);
     scrollArrowLeft.style.transform = `scale(${width/1500})`;
-    scrollArrowLeft.style.opacity = "0";
+    scrollArrowLeft.style.display = "none";
 
 
     // when screen is horizontal create icon for scrolling right
@@ -98,7 +96,7 @@ function createScrollArrows() {
     scrollArrowRight.appendChild(arrowRight);
     disksContainer.appendChild(scrollArrowRight);
     scrollArrowRight.style.transform = `scale(${width/1500})`;
-    scrollArrowRight.style.opacity = "0";
+    scrollArrowRight.style.display = "none";
 
     return [scrollArrowLeft, scrollArrowRight];
 
@@ -118,7 +116,7 @@ function createScrollArrows() {
     scrollArrowTop.appendChild(arrowTop);
     disksContainer.appendChild(scrollArrowTop);
     scrollArrowTop.style.transform = `scale(${height/1500})`;
-    scrollArrowTop.style.opacity = "0";
+    scrollArrowTop.style.display = "none";
 
 
     // when screen is vertical create icon for scrolling bottom
@@ -136,7 +134,7 @@ function createScrollArrows() {
     scrollArrowBottom.appendChild(arrowBottom);
     disksContainer.appendChild(scrollArrowBottom);
     scrollArrowBottom.style.transform = `scale(${height/1500})`;
-    scrollArrowBottom.style.opacity = "0";
+    scrollArrowBottom.style.display = "none";
 
     return [scrollArrowTop, scrollArrowBottom];
   }
@@ -145,22 +143,25 @@ function createScrollArrows() {
 const bg = document.createElement('div');
 bg.className = "bg";
 
+disks.push(createArea("MATCH-3 BOT", "https://github.com/benoitclement", hidden=true));
+disks.push(createArea("HOTEL PARIMIS", "https://parimis.benoitclement.fr", hidden=true));
+disks.push(createArea("MIND-MAPPING", "../cv2019", hidden=true));
+disks.push(createArea("VEVILLE LOCATIONS", "../veville", hidden=true));
+disks.push(createArea("AUTRES TRAVAUX", "https://github.com/benoitclement", hidden=true));
 const scrollArrows = createScrollArrows();
 
 setTimeout(function() {
-  const area1 = createArea(area1Center, "HOTEL PARIMIS", "https://parimis.benoitclement.fr");
+  disks[1].style.display = "block";
 }, 500);
 setTimeout(function() {
-  const area2 = createArea(area2Center, "MIND-MAPPING", "../cv2019");
+  disks[2].style.display = "block";
 }, 1000);
 setTimeout(function() {
-  const area3 = createArea(area3Center, "VEVILLE LOCATIONS", "../veville");
+  disks[3].style.display = "block";
 }, 1500);
 setTimeout(function() {
-  const area4 = createArea(area4Center, "AUTRES TRAVAUX", "https://github.com/benoitclement");
-  area4.style.display = "none";
-  scrollArrows[0].style.opacity = "1";
-  scrollArrows[1].style.opacity = "1";
+  scrollArrows[0].style.display = "block";
+  scrollArrows[1].style.display = "block";
   
 }, 2000);
 
