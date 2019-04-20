@@ -1,6 +1,6 @@
 // TODO : tweak values for responsive... bigger disks for small screens
-let diskTotal = 3;
-let diskDiameter = (isHorizontal) ? .6 * width / diskTotal : .6 * height / diskTotal;
+let disksOnScreen = 3;
+let diskDiameter = (isHorizontal) ? .6 * width / disksOnScreen : .6 * height / disksOnScreen;
 // TODO : make a function to return area center for each disk depending on how many disks are there
 let area1Center = (isHorizontal) ? [.25 * width, .5 * height] : [.5 * width, .25 * height];
 let area2Center = (isHorizontal) ? [.5 * width, .5 * height] : [.5 * width, .5 * height];

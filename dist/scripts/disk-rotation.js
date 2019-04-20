@@ -16,8 +16,8 @@ if (isHorizontal) {
 
   const scrollRight = document.getElementById("scroll-arrow-right");
   scrollRight.addEventListener('click', function() {
-    diskList[diskIndex + 3].style.display = "none";
-    diskList[diskIndex].style.display = "block";
+    diskList[diskIndex + 2].style.display = "none";
+    diskList[diskIndex - 1].style.display = "block";
     diskIndex -= 1;
     for (let i of diskList) {
       i.style.left = diskIndex * width * .25 + "px";
