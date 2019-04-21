@@ -115,6 +115,9 @@ body {
 
   // clip-path: disk(50%);
 
+  // &--anim-create {
+  //   animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out;
+  // }
   animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out;
   // animation-iteration-count: 
 
