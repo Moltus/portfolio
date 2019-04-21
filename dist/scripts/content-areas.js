@@ -7,7 +7,7 @@ let diskInc = 0;
 
 const disksContainer = document.getElementById("disks-container");
 
-function createArea(text, url, opacity, display) {
+function createArea(title, url, image, text, opacity, display) {
   const circularArea = document.createElement("div");
   let areaCenter = (isHorizontal) ? [diskInc * .25 * width, .5 * height] : [.5 * width, diskInc * .25 * height]
   circularArea.id = "circular-area" + diskInc;
@@ -17,10 +17,10 @@ function createArea(text, url, opacity, display) {
   circularArea.style.top = areaCenter[1] - diskDiameter / 2 - 20 + "px";
   circularArea.style.opacity = (opacity) ? "1" : "0";
   circularArea.style.display = (display) ? "block" : "none";
-  const diskLink = document.createElement("a");
-  diskLink.href = url;
-  diskLink.id = "disk-link" + diskInc;
-  diskLink.className = "disk-link";
+  // const diskLink = document.createElement("a");
+  // diskLink.href = url;
+  // diskLink.id = "disk-link" + diskInc;
+  // diskLink.className = "disk-link";
 
   const diskArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   diskArrow.setAttributeNS(null, "class", "disk-arrow");
@@ -42,14 +42,16 @@ function createArea(text, url, opacity, display) {
   diskTitle.id = "disk-title" + diskInc;
   diskTitle.className = "disk-title";
   diskTitle.style.fontSize = diskDiameter / 10 + 'px';
-  const textNode = document.createTextNode(text);
-  diskTitle.appendChild(textNode);
+  const titleNode = document.createTextNode(title);
+  diskTitle.appendChild(titleNode);
 
   disksContainer.appendChild(circularArea);
-  circularArea.appendChild(diskLink);
+  // circularArea.appendChild(diskLink);
   
-  diskLink.appendChild(diskArrow);
-  diskLink.appendChild(disk);
+  // diskLink.appendChild(diskArrow);
+  // diskLink.appendChild(disk);
+  circularArea.appendChild(diskArrow);
+  circularArea.appendChild(disk);
   disk.appendChild(diskTitle);
 
   diskInc ++;
@@ -141,8 +143,8 @@ const bg = document.createElement('div');
 bg.className = "bg";
 
 disks.push(createArea("MATCH-3 BOT", "https://github.com/benoitclement", opacity=false, display=true));
-disks.push(createArea("HOTEL PARIMIS", "https://parimis.benoitclement.fr", opacity=true, display=false));
-disks.push(createArea("MIND-MAPPING", "../cv2019", opacity=true, display=false));
+disks.push(createArea("HOTEL PARIMIS", "https://parimis.benoitclement.fr", "parimis.png", "text text text", opacity=true, display=false));
+disks.push(createArea("MIND-MAPPING", "../cv2019", "mind-map.png", "lorem ipsum", opacity=true, display=false));
 disks.push(createArea("VEVILLE LOCATIONS", "../veville", opacity=true, display=false));
 disks.push(createArea("AUTRES TRAVAUX", "https://github.com/benoitclement", opacity=false, display=true));
 const scrollArrows = createScrollArrows();

@@ -101,13 +101,14 @@ body {
 
 .disk {
   // position: absolute;
+  z-index: 1;
   display:flex;
   align-items: center; /* Vertical center alignment */
   justify-content: center; /* Horizontal center alignment */
   border-radius: 50%;
   border: 3px solid #fff;
   opacity: 1;
-  transition: opacity 3s;
+  transition: opacity 3s, transform .5s;
   background-color: #2a2a2a;
   background-image: url(/images/bg.svg);
   background-size: 30px 30px;
@@ -132,12 +133,7 @@ body {
   }
 }
 
-.disk-link {
-  text-decoration: none;
-  display: block;
-}
-
-.disk-link:hover .disk {
+.circular-area:hover .disk {
   background-image: url(/images/bg-invert.svg);
 }
 
@@ -154,7 +150,7 @@ body {
   }
 }
 
-.disk-link:hover .disk-title {
+.circular-area:hover .disk-title {
   transform: rotate(360deg);
 }
 
@@ -185,7 +181,7 @@ body {
   }
 }
 
-.disk-link:hover .arrow {
+.circular-area:hover .arrow {
   transform: translateX(20px);
 }
 
@@ -205,13 +201,58 @@ body {
   position:  absolute;
   fill: #fff;
   cursor: pointer;
-  animation: scrollArrow 1s;
 }
 
-@keyframes scrollArrow {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-#scroll-arrow-left {
 
+// @keyframes scrollArrow {
+//   from {opacity: 0;}
+//   to {opacity: 1;}
+// }
+
+#scroll-arrow-left.scrolling {
+  animation: arrowLeftMove .25s;
+}
+
+@keyframes arrowLeftMove {
+  0% {transform: translateX(0)}
+  50% {transform: translateX(50px)}
+  100% {transform: translateX(0)}
+}
+
+#scroll-arrow-right.scrolling {
+  animation: arrowRightMove .25s;
+}
+
+@keyframes arrowRightMove {
+  0% {transform: translateX(0)}
+  50% {transform: translateX(-50px)}
+  100% {transform: translateX(0)}
+}
+
+#scroll-arrow-top.scrolling {
+  animation: arrowTopMove .25s;
+}
+
+@keyframes arrowTopMove {
+  0% {transform: translateY(0)}
+  50% {transform: translateY(50px)}
+  100% {transform: translateY(0)}
+}
+
+#scroll-arrow-bottom.scrolling {
+  animation: arrowBottomMove .25s;
+}
+
+@keyframes arrowBottomMove {
+  0% {transform: translateY(0)}
+  50% {transform: translateY(-50px)}
+  100% {transform: translateY(0)}
+}
+
+.circular-area.expand {
+  z-index: 3;
+
+  & .disk {
+    transform: scale(2);
+  }
 }

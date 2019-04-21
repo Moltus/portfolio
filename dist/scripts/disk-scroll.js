@@ -7,10 +7,9 @@ if (isHorizontal) {
     if (scrollLeft.classList.contains('scrolling')) return;
     else {
       scrollLeft.classList.add("scrolling");
-      console.log("bonjour");
       setTimeout(() => {
         scrollLeft.classList.remove("scrolling");
-      }, 500);
+      }, 250);
 
       disks[0].style.opacity = "1";
       disks[3].style.opacity = "0";
@@ -31,7 +30,7 @@ if (isHorizontal) {
       scrollRight.classList.add('scrolling');
       setTimeout(() => {
         scrollRight.classList.remove('scrolling');
-      }, 500);
+      }, 250);
       disks[1].style.opacity = "0";
       disks[4].style.opacity = "1";
 
@@ -49,7 +48,7 @@ if (isHorizontal) {
       scrollTop.classList.add('scrolling');
       setTimeout(() => {
         scrollTop.classList.remove('scrolling');
-      }, 500);
+      }, 250);
       disks[0].style.opacity = "1";
       disks[3].style.opacity = "0";
 
@@ -70,7 +69,7 @@ if (isHorizontal) {
       scrollBottom.classList.add('scrolling');
       setTimeout(() => {
         scrollBottom.classList.remove('scrolling');
-      }, 500);
+      }, 250);
       disks[1].style.opacity = "0";
       disks[4].style.opacity = "1";
 
