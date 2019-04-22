@@ -56,7 +56,7 @@ if (isHorizontal) {
       
       for (let i in disks) {
         // i.style.transform = `translateX(${-width * .25} px)`;
-        disks[i].style.top = i * .25 * height - diskDiameter / 2 + "px";
+        disks[i].style.top = i * .25 * height - 20 - diskDiameter / 2 + "px";
       }
     }
   
@@ -75,7 +75,7 @@ if (isHorizontal) {
 
       disks.splice(disks.length-1, 0, disks.splice(0, 1)[0]);
       for (let i in disks) {
-        disks[i].style.top = i * .25 * height - diskDiameter / 2 + "px";
+        disks[i].style.top = i * .25 * height - 20 - diskDiameter / 2 + "px";
       }
     }
   })

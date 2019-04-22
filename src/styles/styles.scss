@@ -8,6 +8,10 @@ body {
   overflow: hidden; 
 }
 
+a {
+  text-decoration: none;
+}
+
 #logo-bc {
   width: 72.5px;
   height: 72.5px;
@@ -115,13 +119,7 @@ body {
   background-size: 30px 30px;
   background-attachment: fixed;
 
-  // clip-path: disk(50%);
-
-  // &--anim-create {
-  //   animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out;
-  // }
-  animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out;
-  // animation-iteration-count: 
+  animation: backgroundScroll 2s linear infinite, diskGrow .5s ease-out;
 
   @keyframes backgroundScroll {
     from {background-position: 0 0;}
@@ -183,7 +181,7 @@ body {
     display: none;
     width: 100%;
     color: #fff;
-    padding: 10px;
+    padding: 10px 20px 10px 10px;
   }
 }
 
@@ -273,13 +271,20 @@ body {
 }
 
   & .disk {
-    transform: scale(2);
-    border: 1px solid #fff;
+    transform: scale(1.48);
+    border: 1.5px solid #fff;
     background-size: 15px 15px;
-    animation: 0;
+    // animation: backgroundScroll 2s linear infinite;
+    // animation: 0;
+
+    @media only screen and (max-width: 1280px) {
+      // border: 1.4px solid #fff;
+      transform: scale(2);
+    }
 
     @media only screen and (max-width: 800px) {
-      transform: scale(3);
+      border: 1px solid #fff;
+      transform: scale(2.2);
     }
 
     &__arrow {
@@ -303,12 +308,17 @@ body {
     &__text {
       display: block;
       animation: textSlideIn .5s;
-      font-size: .5em;
+      font-size: .7em;
+
+      @media only screen and (max-width: 1280px) {
+        padding-left: 10px 5px 10px 10px;
+        font-size: .5em;
+      }
 
       @media only screen and (max-width: 800px) {
-        padding-left: 3px;
-        font-size: .3em;
-    }
+        // padding-left: 3px;
+        font-size: .4em;
+      }
 
       @keyframes textSlideIn {
         from {transform: translateX(100%);}

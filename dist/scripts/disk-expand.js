@@ -1,6 +1,7 @@
 for (let i of disks) {
-  i.addEventListener('click', function() {
+  i.addEventListener('click', function(evt) {
     if (!i.classList.contains('expand')) {
+      evt.preventDefault();
       i.classList.add('expand');
       for (let j of disks) {
         if (j != i) {

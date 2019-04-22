@@ -5,6 +5,9 @@ body {
   background-color: #2a2a2a;
   overflow: hidden; }
 
+a {
+  text-decoration: none; }
+
 #logo-bc {
   width: 72.5px;
   height: 72.5px;
@@ -307,8 +310,8 @@ body {
   background-image: url(/images/bg.svg);
   background-size: 30px 30px;
   background-attachment: fixed;
-  -webkit-animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out;
-          animation: backgroundScroll 1s linear infinite, diskGrow .5s ease-out; }
+  -webkit-animation: backgroundScroll 2s linear infinite, diskGrow .5s ease-out;
+          animation: backgroundScroll 2s linear infinite, diskGrow .5s ease-out; }
 
 @-webkit-keyframes backgroundScroll {
   from {
@@ -417,7 +420,7 @@ body {
     display: none;
     width: 100%;
     color: #fff;
-    padding: 10px; }
+    padding: 10px 20px 10px 10px; }
 
 .circular-area:hover .disk {
   background-image: url(/images/bg-invert.svg); }
@@ -558,16 +561,19 @@ body {
   .circular-area.expand:hover .disk {
     background-image: url(/images/bg.svg); }
   .circular-area.expand .disk {
-    -webkit-transform: scale(2);
-            transform: scale(2);
-    border: 1px solid #fff;
-    background-size: 15px 15px;
-    -webkit-animation: 0;
-            animation: 0; }
+    -webkit-transform: scale(1.48);
+            transform: scale(1.48);
+    border: 1.5px solid #fff;
+    background-size: 15px 15px; }
+    @media only screen and (max-width: 1280px) {
+      .circular-area.expand .disk {
+        -webkit-transform: scale(2);
+                transform: scale(2); } }
     @media only screen and (max-width: 800px) {
       .circular-area.expand .disk {
-        -webkit-transform: scale(3);
-                transform: scale(3); } }
+        border: 1px solid #fff;
+        -webkit-transform: scale(2.2);
+                transform: scale(2.2); } }
     .circular-area.expand .disk__arrow {
       visibility: hidden; }
     .circular-area.expand .disk__title {
@@ -596,11 +602,14 @@ body {
       display: block;
       -webkit-animation: textSlideIn .5s;
               animation: textSlideIn .5s;
-      font-size: .5em; }
+      font-size: .7em; }
+      @media only screen and (max-width: 1280px) {
+        .circular-area.expand .disk__text {
+          padding-left: 10px 5px 10px 10px;
+          font-size: .5em; } }
       @media only screen and (max-width: 800px) {
         .circular-area.expand .disk__text {
-          padding-left: 3px;
-          font-size: .3em; } }
+          font-size: .4em; } }
 
 @-webkit-keyframes textSlideIn {
   from {
