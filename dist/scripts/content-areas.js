@@ -19,8 +19,8 @@ function createArea(title, url, image, text, opacity, display) {
   circularArea.style.display = (display) ? "block" : "none";
   const diskLink = document.createElement("a");
   diskLink.href = url;
-  diskLink.id = "disk-link" + diskInc;
-  diskLink.className = "disk-link";
+  diskLink.id = "circular-area__link" + diskInc;
+  diskLink.className = "circular-area__link";
 
   const diskArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   diskArrow.setAttributeNS(null, "class", "disk__arrow");
@@ -159,9 +159,9 @@ const bg = document.createElement('div');
 bg.className = "bg";
 
 disks.push(createArea("AUTRES TRAVAUX", "https://github.com/benoitclement", "images/my-github.png", "Le code de tous mes projets sur ma page github.", opacity=false, display=true));
-disks.push(createArea("HOTEL PARIMIS", "https://parimis.benoitclement.fr", "images/parimis.png", "Site vitrine 100% responsive pour un hôtel de luxe d'après cahier des charges. HTML5, PostCSS, Javascript, Gulp, Git", opacity=true, display=false));
+disks.push(createArea("HOTEL PARIMIS", "https://parimis.benoitclement.fr", "images/parimis.png", "Site vitrine 100% responsive pour un hôtel de luxe d'après cahier des charges. HTML5, PostCSS, Javascript, Gulp, Git.", opacity=true, display=false));
 disks.push(createArea("MIND-MAPPING", "../cv2019", "images/mind-map.png", "Outil de mise en forme façon carte heuristique de contenus interconnectés. Les contenus peuvent être de type texte ou image. Le but est à terme de produire une interface complète WYSIWYG pour la mise en relation d'informations." , opacity=true, display=false));
-disks.push(createArea("VEVILLE LOCATIONS", "../veville", "images/veville.png", "Site de location de véhicules en ligne avec backoffice d'après cahier des charges. Bases de données : utilisateurs, véhicules, agences, commandes. HTML5, CSS3, Bootstrap, PHP, MySQL, Ajax, Git", opacity=true, display=false));
+disks.push(createArea("VEVILLE LOCATIONS", "../veville", "images/veville.png", "Site de location de véhicules en ligne avec backoffice d'après cahier des charges. Bases de données : utilisateurs, véhicules, agences, commandes. HTML5, CSS3, Bootstrap, PHP, MySQL, Ajax, Git.", opacity=true, display=false));
 disks.push(createArea("MATCH-3 BOT", "https://github.com/benoitclement/match3-bot", "images/match3bot.png", "Programme \"bot\" / solutionneur de puzzle game type match-3 (ex. Candy Crush). Analyse en temps réel l'affichage écran avant d'effectuer le meilleur mouvement selon un système de priorités. Réalisé avec Python, OpenCV, Numpy.", opacity=false, display=true));
 disks.push(createArea("GUESS THE WORD", "https://github.com/benoitclement/guess-a-word", "images/guess-the-word.png", "Programme de jeu établissant une liste de 10 mots à deviner avec 3 essais pour chacun. Le joueur forme les mots en glissant-déplaçant les lettres. Python, TKinter.", opacity=false, display=true));
 

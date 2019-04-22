@@ -3,10 +3,21 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #2a2a2a;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 a {
   text-decoration: none; }
+
+.ink-drop {
+  transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
+  transition: transform 5s cubic-bezier(0, 1.01, 1, 1);
+  transition: transform 5s cubic-bezier(0, 1.01, 1, 1), -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
+  -webkit-filter: blur(10px);
+          filter: blur(10px); }
 
 #logo-bc {
   width: 72.5px;
@@ -292,6 +303,30 @@ a {
     -webkit-transform: translate(100px, -100px);
             transform: translate(100px, -100px); } }
 
+.circular-area {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: all .5s; }
+  .circular-area__link {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    outline: none; }
+
+.circular-area:hover .disk {
+  background-image: url(/images/bg-invert.svg); }
+
+.circular-area:hover .disk__title {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg); }
+
+.circular-area:hover .disk__arrow__icon {
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px); }
+
 .disk {
   z-index: 1;
   overflow: hidden;
@@ -422,31 +457,6 @@ a {
     color: #fff;
     padding: 10px 20px 10px 10px; }
 
-.circular-area:hover .disk {
-  background-image: url(/images/bg-invert.svg); }
-
-.circular-area:hover .disk__title {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg); }
-
-.circular-area:hover .disk__arrow__icon {
-  -webkit-transform: translateX(20px);
-          transform: translateX(20px); }
-
-.ink-drop {
-  transition: -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
-  transition: transform 5s cubic-bezier(0, 1.01, 1, 1);
-  transition: transform 5s cubic-bezier(0, 1.01, 1, 1), -webkit-transform 5s cubic-bezier(0, 1.01, 1, 1);
-  -webkit-filter: blur(10px);
-          filter: blur(10px); }
-
-.circular-area {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  transition: all .5s; }
-
 .scroll-arrow {
   position: absolute;
   fill: #fff;
@@ -563,7 +573,7 @@ a {
   .circular-area.expand .disk {
     -webkit-transform: scale(1.48);
             transform: scale(1.48);
-    border: 1.5px solid #fff;
+    border: 2px solid #fff;
     background-size: 15px 15px; }
     @media only screen and (max-width: 1280px) {
       .circular-area.expand .disk {
@@ -579,6 +589,7 @@ a {
     .circular-area.expand .disk__title {
       display: none; }
     .circular-area.expand .disk__image {
+      border: none;
       display: block;
       -webkit-animation: imageSlideIn .5s;
               animation: imageSlideIn .5s; }
