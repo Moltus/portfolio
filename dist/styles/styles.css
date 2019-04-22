@@ -291,13 +291,14 @@ body {
 
 .disk {
   z-index: 1;
+  overflow: hidden;
   display: flex;
   align-items: center;
   /* Vertical center alignment */
   justify-content: center;
   /* Horizontal center alignment */
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   opacity: 1;
   transition: opacity 3s, -webkit-transform .5s;
   transition: opacity 3s, transform .5s;
@@ -336,43 +337,9 @@ body {
   to {
     -webkit-transform: scale(1);
             transform: scale(1); } }
-
-.circular-area:hover .disk {
-  background-image: url(/images/bg-invert.svg); }
-
-.disk-title {
-  color: #fff;
-  font-family: Roboto, sans-serif;
-  font-weight: 300;
-  transition: -webkit-transform .5s linear;
-  transition: transform .5s linear;
-  transition: transform .5s linear, -webkit-transform .5s linear;
-  -webkit-animation: spinning .5s ease-out;
-          animation: spinning .5s ease-out; }
-
-@-webkit-keyframes spinning {
-  from {
-    -webkit-transform: scale(0) rotate(0);
-            transform: scale(0) rotate(0); }
-  to {
-    -webkit-transform: scale(1) rotate(360deg);
-            transform: scale(1) rotate(360deg); } }
-
-@keyframes spinning {
-  from {
-    -webkit-transform: scale(0) rotate(0);
-            transform: scale(0) rotate(0); }
-  to {
-    -webkit-transform: scale(1) rotate(360deg);
-            transform: scale(1) rotate(360deg); } }
-
-.circular-area:hover .disk-title {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg); }
-
-.disk-arrow {
-  -webkit-animation: disappear .5s, arrow .25s ease-out .5s forwards;
-          animation: disappear .5s, arrow .25s ease-out .5s forwards; }
+  .disk__arrow {
+    -webkit-animation: disappear .5s, diskArrowMove .25s ease-out .5s forwards;
+            animation: disappear .5s, diskArrowMove .25s ease-out .5s forwards; }
 
 @-webkit-keyframes disappear {
   0% {
@@ -390,7 +357,7 @@ body {
   100% {
     opacity: 1; } }
 
-@-webkit-keyframes arrow {
+@-webkit-keyframes diskArrowMove {
   0% {
     -webkit-transform: translateX(0);
             transform: translateX(0); }
@@ -401,7 +368,7 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0); } }
 
-@keyframes arrow {
+@keyframes diskArrowMove {
   0% {
     -webkit-transform: translateX(0);
             transform: translateX(0); }
@@ -411,14 +378,55 @@ body {
   100% {
     -webkit-transform: translateX(0);
             transform: translateX(0); } }
-  .disk-arrow .arrow {
-    fill: #fff;
-    stroke: #fff;
-    transition: -webkit-transform .25s;
-    transition: transform .25s;
-    transition: transform .25s, -webkit-transform .25s; }
+    .disk__arrow__icon {
+      fill: #fff;
+      stroke: #fff;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+  .disk__title {
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    transition: -webkit-transform .5s linear;
+    transition: transform .5s linear;
+    transition: transform .5s linear, -webkit-transform .5s linear;
+    -webkit-animation: spinning .5s ease-out;
+            animation: spinning .5s ease-out; }
 
-.circular-area:hover .arrow {
+@-webkit-keyframes spinning {
+  from {
+    -webkit-transform: scale(0) rotate(0);
+            transform: scale(0) rotate(0); }
+  to {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg); } }
+
+@keyframes spinning {
+  from {
+    -webkit-transform: scale(0) rotate(0);
+            transform: scale(0) rotate(0); }
+  to {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg); } }
+  .disk__image {
+    display: none;
+    width: 50%;
+    height: 100%; }
+  .disk__text {
+    display: none;
+    width: 100%;
+    color: #fff;
+    padding: 10px; }
+
+.circular-area:hover .disk {
+  background-image: url(/images/bg-invert.svg); }
+
+.circular-area:hover .disk__title {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg); }
+
+.circular-area:hover .disk__arrow__icon {
   -webkit-transform: translateX(20px);
           transform: translateX(20px); }
 
@@ -549,4 +557,60 @@ body {
   z-index: 3; }
   .circular-area.expand .disk {
     -webkit-transform: scale(2);
-            transform: scale(2); }
+            transform: scale(2);
+    border: 1px solid #fff;
+    background-size: 20px 20px;
+    -webkit-animation: 0;
+            animation: 0; }
+    @media only screen and (max-width: 600px) {
+      .circular-area.expand .disk {
+        -webkit-transform: scale(3);
+                transform: scale(3); } }
+    .circular-area.expand .disk__arrow {
+      visibility: hidden; }
+    .circular-area.expand .disk__title {
+      display: none; }
+    .circular-area.expand .disk__image {
+      display: block;
+      -webkit-animation: imageSlideIn .5s;
+              animation: imageSlideIn .5s; }
+
+@-webkit-keyframes imageSlideIn {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes imageSlideIn {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+    .circular-area.expand .disk__text {
+      display: block;
+      -webkit-animation: textSlideIn .5s;
+              animation: textSlideIn .5s; }
+      @media only screen and (max-width: 600px) {
+        .circular-area.expand .disk__text {
+          padding: 10px 5px 10px 10px;
+          font-size: .3em; } }
+
+@-webkit-keyframes textSlideIn {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes textSlideIn {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }

@@ -102,11 +102,12 @@ body {
 .disk {
   // position: absolute;
   z-index: 1;
+  overflow: hidden;
   display:flex;
   align-items: center; /* Vertical center alignment */
   justify-content: center; /* Horizontal center alignment */
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   opacity: 1;
   transition: opacity 3s, transform .5s;
   background-color: #2a2a2a;
@@ -131,38 +132,16 @@ body {
     from {transform: scale(0);}
     to {transform: scale(1);}
   }
-}
 
-.circular-area:hover .disk {
-  background-image: url(/images/bg-invert.svg);
-}
-
-.disk-title {
-  color: #fff;
-  font-family: Roboto, sans-serif;
-  font-weight: 300;
-  transition: transform .5s linear;
-  animation: spinning .5s ease-out;
-
-  @keyframes spinning {
-    from {transform: scale(0) rotate(0);}
-    to {transform: scale(1) rotate(360deg)}
-  }
-}
-
-.circular-area:hover .disk-title {
-  transform: rotate(360deg);
-}
-
-.disk-arrow {
-  animation: disappear .5s, arrow .25s ease-out .5s forwards;
+  &__arrow {
+  animation: disappear .5s, diskArrowMove .25s ease-out .5s forwards;
 
   @keyframes disappear {
     0% {opacity: 0}
     95% {opacity: 0}
     100% {opacity: 1}
   }
-  @keyframes arrow {
+  @keyframes diskArrowMove {
     0% {
       transform: translateX(0);
     }
@@ -174,14 +153,51 @@ body {
     }
   }
 
-  & .arrow {
-    fill : #fff;
-    stroke : #fff;
-    transition: transform .25s;
+    &__icon {
+      fill : #fff;
+      stroke : #fff;
+      transition: transform .25s;
+    }
+  }
+
+  &__title {
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    transition: transform .5s linear;
+    animation: spinning .5s ease-out;
+
+    @keyframes spinning {
+      from {transform: scale(0) rotate(0);}
+      to {transform: scale(1) rotate(360deg)}
+    }
+  }
+
+  &__image {
+    display: none;
+    width: 50%;
+    height: 100%;
+  }
+
+  &__text {
+    display: none;
+    width: 100%;
+    color: #fff;
+    padding: 10px;
   }
 }
 
-.circular-area:hover .arrow {
+.circular-area:hover .disk {
+  background-image: url(/images/bg-invert.svg);
+}
+
+.circular-area:hover .disk__title {
+  transform: rotate(360deg);
+}
+
+
+
+.circular-area:hover .disk__arrow__icon {
   transform: translateX(20px);
 }
 
@@ -251,8 +267,49 @@ body {
 
 .circular-area.expand {
   z-index: 3;
+  
 
   & .disk {
     transform: scale(2);
+    border: 1px solid #fff;
+    background-size: 20px 20px;
+    animation: 0;
+
+    @media only screen and (max-width: 600px) {
+      transform: scale(3);
+    }
+
+    &__arrow {
+      visibility: hidden;
+    }
+
+    &__title {
+      display: none;
+    }
+
+    &__image {
+      display: block;
+      animation: imageSlideIn .5s;
+
+      @keyframes imageSlideIn {
+        from {transform: translateX(-100%);}
+        to {transform: translateX(0);}
+      }
+    }
+    
+    &__text {
+      display: block;
+      animation: textSlideIn .5s;
+
+      @media only screen and (max-width: 600px) {
+      padding: 10px 5px 10px 10px;
+      font-size: .3em;
+    }
+
+      @keyframes textSlideIn {
+        from {transform: translateX(100%);}
+        to {transform: translateX(0);}
+      }
+    }
   }
 }

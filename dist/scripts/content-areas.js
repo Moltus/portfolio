@@ -23,13 +23,13 @@ function createArea(title, url, image, text, opacity, display) {
   // diskLink.className = "disk-link";
 
   const diskArrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  diskArrow.setAttributeNS(null, "class", "disk-arrow");
+  diskArrow.setAttributeNS(null, "class", "disk__arrow");
   const arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
   diskArrow.appendChild(arrow);
   diskArrow.style.width = '40px';
   diskArrow.style.height = '20px';
-  arrow.id = "arrow" + diskInc;
-  arrow.setAttributeNS(null, "class", "arrow");
+  arrow.id = "arrow-icon" + diskInc;
+  arrow.setAttributeNS(null, "class", "disk__arrow__icon");
   arrow.setAttributeNS(null, "points", "0.5 0.82 0.5 18.74 17.81 9.87 0.5 0.82");
 
   const disk = document.createElement('div');
@@ -39,11 +39,24 @@ function createArea(title, url, image, text, opacity, display) {
   disk.style.height = diskDiameter + "px";
 
   const diskTitle = document.createElement("h2");
-  diskTitle.id = "disk-title" + diskInc;
-  diskTitle.className = "disk-title";
+  diskTitle.id = "disk__title" + diskInc;
+  diskTitle.className = "disk__title";
   diskTitle.style.fontSize = diskDiameter / 10 + 'px';
   const titleNode = document.createTextNode(title);
   diskTitle.appendChild(titleNode);
+
+  const diskImage = document.createElement("img");
+  diskImage.id = "disk__image" + diskInc;
+  diskImage.className = "disk__image";
+  diskImage.src = image;
+
+  const diskText = document.createElement("p");
+  diskText.id = "disk__text" + diskInc;
+  diskText.className = "disk__text";
+  // diskText.style.fontSize = diskDiameter / 30 + 'px';
+  const textNode = document.createTextNode(text);
+  diskText.appendChild(textNode);
+
 
   disksContainer.appendChild(circularArea);
   // circularArea.appendChild(diskLink);
@@ -53,6 +66,8 @@ function createArea(title, url, image, text, opacity, display) {
   circularArea.appendChild(diskArrow);
   circularArea.appendChild(disk);
   disk.appendChild(diskTitle);
+  disk.appendChild(diskImage);
+  disk.appendChild(diskText);
 
   diskInc ++;
 
@@ -143,8 +158,8 @@ const bg = document.createElement('div');
 bg.className = "bg";
 
 disks.push(createArea("MATCH-3 BOT", "https://github.com/benoitclement", opacity=false, display=true));
-disks.push(createArea("HOTEL PARIMIS", "https://parimis.benoitclement.fr", "parimis.png", "text text text", opacity=true, display=false));
-disks.push(createArea("MIND-MAPPING", "../cv2019", "mind-map.png", "lorem ipsum", opacity=true, display=false));
+disks.push(createArea("HOTEL PARIMIS", "https://parimis.benoitclement.fr", "images/parimis.png", "text text text", opacity=true, display=false));
+disks.push(createArea("MIND-MAPPING", "../cv2019", "images/mind-map.png", "Outil de mise en forme façon carte heuristique de contenus interconnectés. Les contenus peuvent être de type texte ou image. Le but est à terme de produire une interface de création complète WYSIWYG." , opacity=true, display=false));
 disks.push(createArea("VEVILLE LOCATIONS", "../veville", opacity=true, display=false));
 disks.push(createArea("AUTRES TRAVAUX", "https://github.com/benoitclement", opacity=false, display=true));
 const scrollArrows = createScrollArrows();
