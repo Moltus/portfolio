@@ -268,14 +268,17 @@ body {
 .circular-area.expand {
   z-index: 3;
   
+  &:hover .disk {
+  background-image: url(/images/bg.svg);
+}
 
   & .disk {
     transform: scale(2);
     border: 1px solid #fff;
-    background-size: 20px 20px;
+    background-size: 15px 15px;
     animation: 0;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 800px) {
       transform: scale(3);
     }
 
@@ -300,10 +303,11 @@ body {
     &__text {
       display: block;
       animation: textSlideIn .5s;
+      font-size: .5em;
 
-      @media only screen and (max-width: 600px) {
-      padding: 10px 5px 10px 10px;
-      font-size: .3em;
+      @media only screen and (max-width: 800px) {
+        padding-left: 3px;
+        font-size: .3em;
     }
 
       @keyframes textSlideIn {
