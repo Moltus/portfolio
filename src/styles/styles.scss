@@ -15,8 +15,7 @@ a {
 
 .ink-drop {
   transition: transform 5s cubic-bezier(0,1.01,1,1);
-  filter: blur(10px);
-  
+  // filter: blur(50px);
 }
 
 #logo-bc {
@@ -145,7 +144,7 @@ a {
   border-radius: 50%;
   border: 2px solid #fff;
   opacity: 1;
-  transition: opacity 3s, transform .5s;
+  transition: visibility 3s, transform .5s;
   background-color: #2a2a2a;
   background-image: url(/images/bg.svg);
   background-size: 30px 30px;
