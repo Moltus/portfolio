@@ -315,18 +315,19 @@ a {
             user-select: none;
     outline: none; }
 
-.circular-area:hover .disk {
+.circular-area:hover .disk:before {
   background-image: url(/images/bg-invert.svg); }
 
 .circular-area:hover .disk__title {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg); }
+  font-weight: 500;
+  text-shadow: 5px 10px 20px rgba(0, 0, 0, 0.75), -3px 10px 20px rgba(0, 0, 0, 0.75), 0 -10px 20px rgba(0, 0, 0, 0.75); }
 
 .circular-area:hover .disk__arrow__icon {
   -webkit-transform: translateX(20px);
           transform: translateX(20px); }
 
 .disk {
+  position: relative;
   z-index: 1;
   overflow: hidden;
   display: flex;
@@ -334,18 +335,10 @@ a {
   /* Vertical center alignment */
   justify-content: center;
   /* Horizontal center alignment */
-  border-radius: 50%;
-  border: 2px solid #fff;
   opacity: 1;
   transition: visibility 3s, -webkit-transform .5s;
   transition: visibility 3s, transform .5s;
-  transition: visibility 3s, transform .5s, -webkit-transform .5s;
-  background-color: #2a2a2a;
-  background-image: url(/images/bg.svg);
-  background-size: 30px 30px;
-  background-attachment: fixed;
-  -webkit-animation: backgroundScroll 2s linear infinite, diskGrow .5s ease-out;
-          animation: backgroundScroll 2s linear infinite, diskGrow .5s ease-out; }
+  transition: visibility 3s, transform .5s, -webkit-transform .5s; }
 
 @-webkit-keyframes backgroundScroll {
   from {
@@ -422,12 +415,15 @@ a {
       transition: transform .25s;
       transition: transform .25s, -webkit-transform .25s; }
   .disk__title {
+    text-shadow: 0 0 transparent;
+    position: relative;
     color: #fff;
     font-family: Roboto, sans-serif;
     font-weight: 300;
-    transition: -webkit-transform .5s linear;
-    transition: transform .5s linear;
-    transition: transform .5s linear, -webkit-transform .5s linear;
+    transition: -webkit-transform .25s linear;
+    transition: transform .25s linear;
+    transition: transform .25s linear, -webkit-transform .25s linear;
+    transition: text-shadow .15s linear;
     -webkit-animation: spinning .5s ease-out;
             animation: spinning .5s ease-out; }
 
@@ -447,14 +443,34 @@ a {
     -webkit-transform: scale(1) rotate(360deg);
             transform: scale(1) rotate(360deg); } }
   .disk__image {
+    position: relative;
     display: none;
     width: 50%;
     height: 100%; }
   .disk__text {
+    position: relative;
     display: none;
     width: 100%;
     color: #fff;
     padding: 10px 20px 10px 10px; }
+
+.disk:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #2a2a2a;
+  background-image: url(/images/bg.svg);
+  background-size: 30px 30px;
+  background-attachment: fixed;
+  -webkit-animation: backgroundScroll 2s linear infinite, diskGrow .5s ease-out;
+          animation: backgroundScroll 2s linear infinite, diskGrow .5s ease-out; }
+
+.disk, .disk:before {
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
 
 .scroll-arrow {
   position: absolute;
@@ -567,13 +583,13 @@ a {
 
 .circular-area.expand {
   z-index: 3; }
-  .circular-area.expand:hover .disk {
+  .circular-area.expand:hover .disk:before {
     background-image: url(/images/bg.svg); }
-  .circular-area.expand .disk {
-    -webkit-transform: scale(1.48);
-            transform: scale(1.48);
-    border: 2px solid #fff;
+  .circular-area.expand .disk:before {
     background-size: 15px 15px; }
+  .circular-area.expand .disk {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4); }
     @media only screen and (max-width: 1280px) {
       .circular-area.expand .disk {
         -webkit-transform: scale(2);
