@@ -1,9 +1,9 @@
 // TODO : tweak values for responsive... bigger disks for small screens
 let disksOnScreen = 3;
-let aeraWidth = isHorizontal
+let hexaWidth = isHorizontal
 	? (0.6 * width) / disksOnScreen
 	: (0.6 * height) / disksOnScreen;
-let aeraHeight = aeraWidth * 1.1547005;
+let hexaHeight = hexaWidth * 1.1547005;
 
 let disks = [];
 let diskInc = 0;
@@ -18,8 +18,8 @@ function createArea(title, url, image, text, opacity, display) {
 	circularArea.id = 'circular-area' + diskInc;
 	circularArea.className = 'circular-area';
 	circularArea.style.position = 'absolute';
-	circularArea.style.left = areaCenter[0] - aeraWidth / 2 + 'px';
-	circularArea.style.top = areaCenter[1] - aeraHeight / 2 - 20 + 'px';
+	circularArea.style.left = areaCenter[0] - hexaWidth / 2 + 'px';
+	circularArea.style.top = areaCenter[1] - hexaHeight / 2 - 20 + 'px';
 	circularArea.style.opacity = opacity ? '1' : '0';
 	circularArea.style.display = display ? 'block' : 'none';
 	const diskLink = document.createElement('a');
@@ -51,13 +51,13 @@ function createArea(title, url, image, text, opacity, display) {
 	const disk = document.createElement('div');
 	disk.className = 'disk';
 	disk.id = 'disk' + diskInc;
-	disk.style.width = aeraWidth + 'px';
-	disk.style.height = aeraHeight + 'px';
+	disk.style.width = hexaWidth + 'px';
+	disk.style.height = hexaHeight + 'px';
 
 	const diskTitle = document.createElement('h2');
 	diskTitle.id = 'disk__title' + diskInc;
 	diskTitle.className = 'disk__title';
-	diskTitle.style.fontSize = aeraWidth / 11 + 'px';
+	diskTitle.style.fontSize = hexaWidth / 11 + 'px';
 	const titleNode = document.createTextNode(title);
 	diskTitle.appendChild(titleNode);
 
@@ -69,7 +69,7 @@ function createArea(title, url, image, text, opacity, display) {
 	const diskText = document.createElement('p');
 	diskText.id = 'disk__text' + diskInc;
 	diskText.className = 'disk__text';
-	// diskText.style.fontSize = diskDiameter / 30 + 'px';
+	// diskText.style.fontSize = hexaWidth / 30 + 'px';
 	const textNode = document.createTextNode(text);
 	diskText.appendChild(textNode);
 
@@ -241,7 +241,7 @@ disks.push(
 );
 disks.push(
 	createArea(
-		'VEVILLE LOCATIONS',
+		'VEVILLE LOC.',
 		'../veville',
 		'images/veville.png',
 		"Site de location de véhicules en ligne avec backoffice d'après cahier des charges. Bases de données : utilisateurs, véhicules, agences, commandes. HTML5, CSS3, Bootstrap, PHP, MySQL, Ajax, Git.",

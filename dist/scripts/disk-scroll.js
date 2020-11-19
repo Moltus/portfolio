@@ -2,81 +2,80 @@
 // console.log(disks);
 
 if (isHorizontal) {
-  const scrollLeft = document.getElementById("scroll-arrow-left");
-  scrollLeft.addEventListener('click', function() {
-    if (scrollLeft.classList.contains('scrolling')) return;
-    else {
-      scrollLeft.classList.add("scrolling");
-      setTimeout(() => {
-        scrollLeft.classList.remove("scrolling");
-      }, 250);
+	const scrollLeft = document.getElementById('scroll-arrow-left');
+	scrollLeft.addEventListener('click', function () {
+		if (scrollLeft.classList.contains('scrolling')) return;
+		else {
+			scrollLeft.classList.add('scrolling');
+			setTimeout(() => {
+				scrollLeft.classList.remove('scrolling');
+			}, 250);
 
-      disks[0].style.opacity = "1";
-      disks[3].style.opacity = "0";
+			disks[0].style.opacity = '1';
+			disks[3].style.opacity = '0';
 
-      disks.splice(0, 0, disks.splice(disks.length-1, 1)[0]);
-      
-      for (let i in disks) {
-        // i.style.transform = `translateX(${-width * .25} px)`;
-        disks[i].style.left = i * .25 * width - diskDiameter / 2 + "px";
-      }
-    }
-  });
+			disks.splice(0, 0, disks.splice(disks.length - 1, 1)[0]);
 
-  const scrollRight = document.getElementById("scroll-arrow-right");
-  scrollRight.addEventListener('click', function() {
-    if (scrollRight.classList.contains('scrolling')) return;
-    else {
-      scrollRight.classList.add('scrolling');
-      setTimeout(() => {
-        scrollRight.classList.remove('scrolling');
-      }, 250);
-      disks[1].style.opacity = "0";
-      disks[4].style.opacity = "1";
+			for (let i in disks) {
+				// i.style.transform = `translateX(${-width * .25} px)`;
+				disks[i].style.left = i * 0.25 * width - hexaWidth / 2 + 'px';
+			}
+		}
+	});
 
-      disks.splice(disks.length-1, 0, disks.splice(0, 1)[0]);
-      for (let i in disks) {
-        disks[i].style.left = i * .25 * width - diskDiameter / 2 + "px";
-      }
-    }
-  })
+	const scrollRight = document.getElementById('scroll-arrow-right');
+	scrollRight.addEventListener('click', function () {
+		if (scrollRight.classList.contains('scrolling')) return;
+		else {
+			scrollRight.classList.add('scrolling');
+			setTimeout(() => {
+				scrollRight.classList.remove('scrolling');
+			}, 250);
+			disks[1].style.opacity = '0';
+			disks[4].style.opacity = '1';
+
+			disks.splice(disks.length - 1, 0, disks.splice(0, 1)[0]);
+			for (let i in disks) {
+				disks[i].style.left = i * 0.25 * width - hexaWidth / 2 + 'px';
+			}
+		}
+	});
 } else {
-  const scrollTop = document.getElementById("scroll-arrow-top");
-  scrollTop.addEventListener('click', function() {
-    if (scrollTop.classList.contains('scrolling')) return;
-    else {
-      scrollTop.classList.add('scrolling');
-      setTimeout(() => {
-        scrollTop.classList.remove('scrolling');
-      }, 250);
-      disks[0].style.opacity = "1";
-      disks[3].style.opacity = "0";
+	const scrollTop = document.getElementById('scroll-arrow-top');
+	scrollTop.addEventListener('click', function () {
+		if (scrollTop.classList.contains('scrolling')) return;
+		else {
+			scrollTop.classList.add('scrolling');
+			setTimeout(() => {
+				scrollTop.classList.remove('scrolling');
+			}, 250);
+			disks[0].style.opacity = '1';
+			disks[3].style.opacity = '0';
 
-      disks.splice(0, 0, disks.splice(disks.length-1, 1)[0]);
-      
-      for (let i in disks) {
-        // i.style.transform = `translateX(${-width * .25} px)`;
-        disks[i].style.top = i * .25 * height - 20 - diskDiameter / 2 + "px";
-      }
-    }
-  
-  })
+			disks.splice(0, 0, disks.splice(disks.length - 1, 1)[0]);
 
-  const scrollBottom = document.getElementById("scroll-arrow-bottom");
-  scrollBottom.addEventListener('click', function() {
-    if (scrollBottom.classList.contains('scrolling')) return;
-    else {
-      scrollBottom.classList.add('scrolling');
-      setTimeout(() => {
-        scrollBottom.classList.remove('scrolling');
-      }, 250);
-      disks[1].style.opacity = "0";
-      disks[4].style.opacity = "1";
+			for (let i in disks) {
+				// i.style.transform = `translateX(${-width * .25} px)`;
+				disks[i].style.top = i * 0.25 * height - 20 - hexaWidth / 2 + 'px';
+			}
+		}
+	});
 
-      disks.splice(disks.length-1, 0, disks.splice(0, 1)[0]);
-      for (let i in disks) {
-        disks[i].style.top = i * .25 * height - 20 - diskDiameter / 2 + "px";
-      }
-    }
-  })
+	const scrollBottom = document.getElementById('scroll-arrow-bottom');
+	scrollBottom.addEventListener('click', function () {
+		if (scrollBottom.classList.contains('scrolling')) return;
+		else {
+			scrollBottom.classList.add('scrolling');
+			setTimeout(() => {
+				scrollBottom.classList.remove('scrolling');
+			}, 250);
+			disks[1].style.opacity = '0';
+			disks[4].style.opacity = '1';
+
+			disks.splice(disks.length - 1, 0, disks.splice(0, 1)[0]);
+			for (let i in disks) {
+				disks[i].style.top = i * 0.25 * height - 20 - hexaWidth / 2 + 'px';
+			}
+		}
+	});
 }

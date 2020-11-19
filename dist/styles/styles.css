@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background-color: #2a2a2a;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
@@ -320,7 +320,7 @@ a {
 
 .circular-area:hover .disk__title {
   font-weight: 500;
-  text-shadow: 5px 10px 20px rgba(0, 0, 0, 0.75), -3px 10px 20px rgba(0, 0, 0, 0.75), 0 -10px 20px rgba(0, 0, 0, 0.75); }
+  text-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3), -20px -20px 0 rgba(0, 0, 0, 0.3); }
 
 .circular-area:hover .disk__arrow__icon {
   -webkit-transform: translateX(20px);
@@ -418,8 +418,8 @@ a {
     text-shadow: 0 0 transparent;
     position: relative;
     color: #fff;
-    font-family: Roboto, sans-serif;
-    font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
     transition: -webkit-transform .25s linear;
     transition: transform .25s linear;
     transition: transform .25s linear, -webkit-transform .25s linear;
