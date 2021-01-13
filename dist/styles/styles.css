@@ -320,7 +320,7 @@ a {
 
 .circular-area:hover .disk__title {
   font-weight: 500;
-  text-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3), -20px -20px 0 rgba(0, 0, 0, 0.3); }
+  text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.3), -20px -20px 5px rgba(0, 0, 0, 0.3); }
 
 .circular-area:hover .disk__arrow__icon {
   -webkit-transform: translateX(20px);
@@ -415,33 +415,33 @@ a {
       transition: transform .25s;
       transition: transform .25s, -webkit-transform .25s; }
   .disk__title {
-    text-shadow: 0 0 transparent;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.7);
     position: relative;
     color: #fff;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 500;
-    transition: -webkit-transform .25s linear;
-    transition: transform .25s linear;
-    transition: transform .25s linear, -webkit-transform .25s linear;
-    transition: text-shadow .15s linear;
-    -webkit-animation: spinning .5s ease-out;
-            animation: spinning .5s ease-out; }
+    transition: -webkit-transform .25s ease-in;
+    transition: transform .25s ease-in;
+    transition: transform .25s ease-in, -webkit-transform .25s ease-in;
+    transition: text-shadow .4s linear;
+    -webkit-animation: .5s ease-out growTitle;
+            animation: .5s ease-out growTitle; }
 
-@-webkit-keyframes spinning {
+@-webkit-keyframes growTitle {
   from {
-    -webkit-transform: scale(0) rotate(0);
-            transform: scale(0) rotate(0); }
+    -webkit-transform: scale(0);
+            transform: scale(0); }
   to {
-    -webkit-transform: scale(1) rotate(360deg);
-            transform: scale(1) rotate(360deg); } }
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 
-@keyframes spinning {
+@keyframes growTitle {
   from {
-    -webkit-transform: scale(0) rotate(0);
-            transform: scale(0) rotate(0); }
+    -webkit-transform: scale(0);
+            transform: scale(0); }
   to {
-    -webkit-transform: scale(1) rotate(360deg);
-            transform: scale(1) rotate(360deg); } }
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
   .disk__image {
     position: relative;
     display: none;
@@ -652,3 +652,7 @@ a {
   to {
     -webkit-transform: translateX(0);
             transform: translateX(0); } }
+
+.circular-area.shadowed {
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5); }
