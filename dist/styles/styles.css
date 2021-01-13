@@ -423,7 +423,7 @@ a {
     transition: -webkit-transform .25s ease-in;
     transition: transform .25s ease-in;
     transition: transform .25s ease-in, -webkit-transform .25s ease-in;
-    transition: text-shadow .4s linear;
+    transition: text-shadow .4s ease-in-out;
     -webkit-animation: .5s ease-out growTitle;
             animation: .5s ease-out growTitle; }
 

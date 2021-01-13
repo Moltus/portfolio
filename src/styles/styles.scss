@@ -212,7 +212,7 @@ a {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 500;
     transition: transform .25s ease-in;
-    transition: text-shadow .4s linear;
+    transition: text-shadow .4s ease-in-out;
     animation: .5s ease-out growTitle;
     // animation-delay: .5s;
 
