@@ -596,7 +596,6 @@ a {
                 transform: scale(2); } }
     @media only screen and (max-width: 800px) {
       .circular-area.expand .disk {
-        border: 1px solid #fff;
         -webkit-transform: scale(2.2);
                 transform: scale(2.2); } }
     .circular-area.expand .disk__arrow {
